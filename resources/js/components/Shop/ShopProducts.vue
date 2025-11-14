@@ -1008,7 +1008,7 @@
                                     class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white absolute inset-inline-start-0 inset-block-start-0"
                                     >Sale 50% </span
                                 ><img
-                                    src="https://scontent.cdninstagram.com/v/t51.82787-15/527382424_18320356516231909_8438539839199855456_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=MzY5MDQ2MDY2MzIwMjU5MjQxMg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjg1Nng4NzQuc2RyLkMzIn0%3D&_nc_ohc=ZwoiTtXTuvQQ7kNvwFcYWw1&_nc_oc=AdlFiap13R_g3AmIlyTHzTb0iSZ9a0GYhxydzfsHLKa4mFH8xKBZw50kfMoiB5z1d0RANo0lNGbk7oG6RUGdQ1gJ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=9y3m4IsNsnzMPu1gq8Y3OQ&oh=00_Aff61iP5KXVmSSCeeCD3KEUtImUAc7AOjNlL05vhWSiwIQ&oe=690C0BC8"
+                                    src="https://i.pinimg.com/1200x/c3/3e/c7/c33ec7027c672dc939b715de1802be86.jpg"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
@@ -1086,7 +1086,7 @@
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src=""
+                                    src="https://futcardsfifa.com/app/uploads/2024/11/FC25-FUT-Showdown-min.png"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
@@ -1164,7 +1164,7 @@
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src=""
+                                    src="https://futcardsfifa.com/app/uploads/2021/03/MILAN-min.png"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
@@ -1242,7 +1242,7 @@
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src=""
+                                    src="https://futcardsfifa.com/app/uploads/2024/06/ESPANA-EUROCOPA-2024style2023.png"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>

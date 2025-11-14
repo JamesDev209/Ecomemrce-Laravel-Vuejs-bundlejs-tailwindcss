@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, watch, nextTick } from 'vue'
+import { onMounted, nextTick, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -9,19 +9,20 @@ const route = useRoute()
 onMounted(() => {
   AOS.init({
     duration: 800,
-    once: true,
+    once: false, // permite animaciones cada vez
   })
 })
 
 watch(() => route.fullPath, async () => {
-  await nextTick() // espera que la vista cargue
-  AOS.refreshHard() // más fuerte que refresh normal
+  await nextTick()
+  AOS.refreshHard()
 })
 </script>
 
 <template>
   <router-view />
 </template>
+
 
 
 
