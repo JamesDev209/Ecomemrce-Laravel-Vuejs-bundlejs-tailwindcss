@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ShopView from '../pages/ShopView.vue'    
 import HomeView from '../pages/HomeView.vue'
-import Dashboard from '../pages/admin/Dashboard.vue'
-import Login from '../pages/admin/Login.vue'
 
 
 
