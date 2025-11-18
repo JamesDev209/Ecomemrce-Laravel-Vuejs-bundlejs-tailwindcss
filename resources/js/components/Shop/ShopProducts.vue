@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+
+import camisa from '../../'
+
+</script>
 
 <template>
     <div class="breadcrumb mb-0 py-26 bg-main-two-50">
@@ -700,7 +704,7 @@
                         </div>
                         <div class="shop-sidebar__box rounded-8">
                             <img
-                                src="/resources/assets/images/advertise-img1.png"
+                                src="../../../public/images/camisa_fut.jpg"
                                 alt="Image"
                             />
                         </div>
@@ -766,7 +770,7 @@
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src="https://scontent.cdninstagram.com/v/t51.82787-15/570105661_18331915792231909_2555002407448809140_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=Mzc1MDUyODk1NjQ1MDQ5NDU0MA%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=3Itk2Qj2LYcQ7kNvwG-q4NK&_nc_oc=AdlfU8_P70JGsBfg8VtdRCaHoTU8BPzN4BVBDUOxu11rDr33uYONBVHMLrLpUdszEKEQdMkNreHHR1Ns6C1eFonK&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=N0k9xTTeFjaK5EBr6yM3_A&oh=00_AfcO7P8XTbhS7xDDCLV3X7k2zaP7PguF7mXDr8vILZV2mw&oe=690C2668"
+                                    :src="camisa"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                                 />
@@ -849,7 +853,7 @@
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src="https://scontent.cdninstagram.com/v/t51.82787-15/575388023_18332935513231909_420063627317961620_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzc1NTc0NDQyNjU3MzAxNjc5NQ%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=2b4qCEZ5rBEQ7kNvwELFNbW&_nc_oc=AdnjXSZdMu_Rjvv6GGBXnmhcUduk6XTgWaYliF_I2nanQyyaJBP9zwG18wnWG5z_nVP0A6LaTecU-OAvpSc9EuK1&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=Zu7qkqS8Oip4NFAvF5pxMA&oh=00_AfewGCtYGk0YsflJibGTXuhjnPG1BdKvhzdFYW6M5m7pgg&oe=690C023E"
+                                    src="../../../public/images/camisa_fut.jpg"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
@@ -927,7 +931,7 @@
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src="https://scontent.cdninstagram.com/v/t51.82787-15/572440256_18332935504231909_3747270422272714546_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=Mzc1NTc0NDQyNjYwNjUzNzE3Mg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=tQBaCzDNA74Q7kNvwGpiBSW&_nc_oc=AdnHz8JTCy-WVm3IF3wxphrp4B-UiJkafqBUdNMC3dJuSJyNO0S5mXKWVkALWnZhLWI7H2q3y1gDVuh7m75p_XjE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=d4MAe0nSJrn1BkY_M1a9tQ&oh=00_Afdw6_HXVq0zwa1rmptpXOtKKlBwfssIg6jP-2ANSdERjg&oe=690C2249"
+                                    src="../../../public/images/camisa_fut2.jpg"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>

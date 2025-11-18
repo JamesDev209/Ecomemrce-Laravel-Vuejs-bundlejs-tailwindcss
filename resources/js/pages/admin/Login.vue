@@ -76,7 +76,10 @@ const login = async () => {
                             v-model="email"
                             class="w-full px-12 py-8 text-sm border border-gray-300 rounded-8 focus:border-main-500 focus:ring-1 focus:ring-main-500 transition-colors"
                             placeholder="Ingresa tu correo"
+                        
                         />
+                        
+                    
                     </div>
                     <div class="mt-8">
                         <label
