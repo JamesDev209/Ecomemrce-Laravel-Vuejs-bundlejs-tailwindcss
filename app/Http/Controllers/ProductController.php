@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use Illuminate\Support\Facades\Log;
 
 use Illuminate\Http\Request;
 
@@ -11,20 +12,40 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
-            'image' => 'nullable|string'
-        ]);
+        try {
+            $validated = $request->validate([
+                'name' => 'required|string|max:255',
+                'description' => 'nullable|string',
+                'price' => 'required|numeric',
+                'stock' => 'required|integer',
+                'image' => 'nullable|string',
+                'category_id' => 'nullable|integer|exists:categories,id',
+                'gallery' => 'nullable'
+            ]);
 
-        $product = Product::create($validated);
+            // Si hay archivos en la galería, procesar y guardar en storage
+            if ($request->hasFile('gallery')) {
+                $galleryPaths = [];
+                foreach ($request->file('gallery') as $file) {
+                    $path = $file->store('products/gallery', 'public');
+                    $galleryPaths[] = $path;
+                }
+                $validated['gallery'] = json_encode($galleryPaths);
+            }
 
-        return response()->json([
-            'message' => 'Product created successfully',
-            'product' => $product
-        ], 201);
+            $product = Product::create($validated);
+
+            return response()->json([
+                'message' => 'Product created successfully',
+                'product' => $product
+            ], 201);
+        } catch (\Exception $e) {
+            Log::error('Error al crear producto: ' . $e->getMessage());
+            return response()->json([
+                'message' => 'Error al crear el producto',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function index()

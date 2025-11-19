@@ -1,5 +1,75 @@
 <script setup>
 import Sidebar from '../components/Sidebar.vue';
+import { ref } from 'vue';
+
+const name = ref('');
+const size = ref('');
+const brand = ref('');
+const category = ref('');
+const cost = ref('');
+const description = ref('');
+const availability = ref('');
+const stock = ref('');
+const showSuccess = ref(false);
+const errors = ref({});
+import axios from 'axios';
+
+async function addProduct() {
+    errors.value = {};
+    showSuccess.value = false;
+    try {
+        const formData = new FormData();
+        formData.append('name', name.value);
+        formData.append('description', description.value);
+        formData.append('price', cost.value);
+        formData.append('stock', stock.value);
+        // category_id debe ser entero o null
+        const catId = getCategoryId();
+        if (catId !== null) {
+            formData.append('category_id', catId);
+        }
+        formData.append('availability', availability.value);
+        images.value.forEach((img, idx) => {
+            formData.append(`gallery[${idx}]`, img);
+        });
+
+        const response = await axios.post('/api/products', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        showSuccess.value = true;
+        setTimeout(() => {
+            showSuccess.value = false;
+        }, 2000);
+        // Limpiar campos si quieres
+    } catch (err) {
+        if (err.response && err.response.data && err.response.data.errors) {
+            errors.value = err.response.data.errors;
+        } else {
+            errors.value = { general: 'Error al crear el producto' };
+        }
+        // Para debug
+        console.error('Error al crear producto:', err);
+    }
+}
+
+
+const images = ref([])
+const previewImages = ref([])
+
+// Ajuste: category_id debe ser entero
+function getCategoryId() {
+    // Si el select tiene value numérico, conviértelo, si no, retorna null
+    return category.value && !isNaN(category.value) ? parseInt(category.value) : null;
+}
+
+function onImagesChange(e) {
+    images.value = Array.from(e.target.files)
+
+    // Generate previews
+    previewImages.value = images.value.map(file => URL.createObjectURL(file))
+}
 </script>
 
 <template>
@@ -43,12 +113,14 @@ import Sidebar from '../components/Sidebar.vue';
                                                 <div class="grid grid-cols-12 sm:gap-x-6 gap-y-3">
                                                     <div class="xl:col-span-12 col-span-12">
                                                         <label for="product-name-add" class="form-label">Product Name</label>
-                                                        <input type="text" class="form-control" id="product-name-add" placeholder="Name">
+                                                        <input type="text" class="form-control" id="product-name-add" placeholder="Name" v-model="name">
                                                         <label for="product-name-add" class="form-label mt-1 text-xs font-normal text-textmuted dark:text-textmuted/50 mb-0">*Product Name should not exceed 30 characters</label>
+                                                        <p v-if="errors.name" class="text-danger text-sm">{{ errors.name }}</p>
+
                                                     </div>
-                                                    <div class="xl:col-span-6 col-span-12">
+                                                    <!-- <div class="xl:col-span-6 col-span-12">
                                                         <label for="product-size-add" class="form-label">Size</label>
-                                                        <select class="form-control" data-trigger name="product-size-add" id="product-size-add">
+                                                        <select class="form-control" data-trigger name="product-size-add" id="product-size-add" v-model="size">
                                                             <option value="">Select</option>
                                                             <option value="Extra Small">Extra Small</option>
                                                             <option value="Small">Small</option>
@@ -56,23 +128,10 @@ import Sidebar from '../components/Sidebar.vue';
                                                             <option value="Large">Large</option>
                                                             <option value="Extra Large">Extra Large</option>
                                                         </select>
-                                                    </div>
-                                                    <div class="xl:col-span-6 col-span-12">
-                                                        <label for="product-brand-add" class="form-label">Brand</label>
-                                                        <select class="form-control" data-trigger name="product-brand-add" id="product-brand-add">
-                                                            <option value="">Select</option>
-                                                            <option value="Armani">Armani</option>
-                                                            <option value="Lacoste">Lacoste</option>
-                                                            <option value="Puma">Puma</option>
-                                                            <option value="Spykar">Spykar</option>
-                                                            <option value="Mufti">Mufti</option>
-                                                            <option value="Home Town">Home Town</option>
-                                                            <option value="Arrabi">Arrabi</option>
-                                                        </select>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="xl:col-span-6 col-span-12">
                                                         <label for="product-category-add" class="form-label">Category</label>
-                                                        <select class="form-control" data-trigger name="product-category-add" id="product-category-add">
+                                                        <select class="form-control" data-trigger name="product-category-add" id="product-category-add" v-model="category">
                                                             <option value="">Category</option>
                                                             <option value="Clothing">Clothing</option>
                                                             <option value="Footwear">Footwear</option>
@@ -90,28 +149,44 @@ import Sidebar from '../components/Sidebar.vue';
                                                     </div>
                                                     <div class="xl:col-span-6 col-span-12">
                                                         <label for="product-cost-add" class="form-label">Enter Cost</label>
-                                                        <input type="text" class="form-control" id="product-cost-add" placeholder="Cost">
+                                                        <input type="text" class="form-control" id="product-cost-add" placeholder="Cost" v-model="cost">
                                                         <label for="product-cost-add" class="form-label mt-1 text-xs font-normal text-textmuted dark:text-textmuted/50 mb-0">*Mention final price of the product</label>
                                                     </div>
                                                     <div class="xl:col-span-12 col-span-12">
                                                         <label for="product-description-add" class="form-label">Product Description</label>
-                                                        <textarea class="form-control" id="product-description-add" rows="3"></textarea>
+                                                        <textarea class="form-control" id="product-description-add" rows="3" v-model="description"></textarea>
                                                         <label for="product-description-add" class="form-label mt-1 text-xs font-normal text-textmuted dark:text-textmuted/50 mb-0">*Description should not exceed 500 letters</label>
                                                     </div>
                                                     <div class="xl:col-span-12 col-span-12 product-documents-container">
                                                         <p class="font-medium mb-2 text-[14px]">Product Images :</p>
-                                                        <input type="file" class="product-Images" name="filepond" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="6">
+                                                        <input 
+                                                            type="file" 
+                                                            class="product-Images" 
+                                                            multiple
+                                                            @change="onImagesChange"
+                                                        />
+
+                                                        <div class="grid grid-cols-3 gap-2 mt-3">
+                                                            <div v-for="(img, index) in previewImages" :key="index">
+                                                                <img :src="img" class="w-full h-32 object-cover rounded" />
+                                                            </div>
+                                                        </div>
+
                                                         <label class="form-label text-textmuted dark:text-textmuted/50 mt-3 font-normal text-xs">* Minimum of 6 images are need to be uploaded,
                                                             all images should be uniformly maintained, width and height to the container.
                                                         </label>
                                                     </div>
                                                     <div class="xl:col-span-12 col-span-12">
                                                         <label for="product-status-add1" class="form-label">Availability</label>
-                                                        <select class="form-control" data-trigger name="product-status-add1" id="product-status-add1">
+                                                        <select class="form-control" data-trigger name="product-status-add1" id="product-status-add1" v-model="availability">
                                                             <option value="">Select</option>
                                                             <option value="In Stock">In Stock</option>
                                                             <option value="Out Of Stock">Out Of Stock</option>
                                                         </select>
+                                                    </div>
+                                                    <div class="xl:col-span-6 col-span-12">
+                                                        <label for="product-stock-add" class="form-label">Stock</label>
+                                                        <input type="number" class="form-control" id="product-stock-add" placeholder="Stock" v-model="stock">
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,7 +196,7 @@ import Sidebar from '../components/Sidebar.vue';
                                 </div>
                             </div>
                             <div class="box-footer border-t border-block-start-dashed sm:flex justify-end">
-                                <button class="ti-btn bg-primarytint1color text-white me-2 mb-2 mb-sm-0">Add Product<i class="bi bi-plus-lg ms-2"></i></button>
+                                <button class="ti-btn bg-primarytint1color text-white me-2 mb-2 mb-sm-0" @click="addProduct" type="button">Add Product<i class="bi bi-plus-lg ms-2"></i></button>
                                 <button class="ti-btn ti-btn-primary mb-2 mb-sm-0">Save Product<i class="bi bi-download ms-2"></i></button>
                             </div>
                         </div>
@@ -133,4 +208,7 @@ import Sidebar from '../components/Sidebar.vue';
         </div>
         <!-- End::app-content -->
 
+<div v-if="showSuccess" class="alert alert-success mt-4">
+    Producto creado correctamente
+</div>
 </template>
