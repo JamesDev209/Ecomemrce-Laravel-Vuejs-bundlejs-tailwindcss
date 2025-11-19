@@ -1,6 +1,14 @@
 <script setup>
+import product1 from '../../../assets/images/products/camisa_fut.jpg'
+import product2 from '../../../assets/images/products/camisa_fut2.jpg'
+import product3 from '../../../assets/images/products/camisa_fut3.jpg'
+import product4 from '../../../assets/images/products/camisa_fut4.jpg'
+import product5 from '../../../assets/images/products/camisa_fut5.jpg'
+import product6 from '../../../assets/images/products/camisa_fut6.jpg'
+import product7 from '../../../assets/images/products/camisa_fut7.jpg'
+import product8 from '../../../assets/images/products/camisa_fut8.jpg'
 
-import camisa from '../../'
+
 
 </script>
 
@@ -770,7 +778,7 @@ import camisa from '../../'
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    :src="camisa"
+                                    :src="product1"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                                 />
@@ -853,7 +861,7 @@ import camisa from '../../'
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src="../../../public/images/camisa_fut.jpg"
+                                    :src="product2"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
@@ -931,7 +939,7 @@ import camisa from '../../'
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src="../../../public/images/camisa_fut2.jpg"
+                                    :src="product3"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
@@ -1012,7 +1020,7 @@ import camisa from '../../'
                                     class="product-card__badge bg-danger-600 px-8 py-4 text-sm text-white absolute inset-inline-start-0 inset-block-start-0"
                                     >Sale 50% </span
                                 ><img
-                                    src="https://i.pinimg.com/1200x/c3/3e/c7/c33ec7027c672dc939b715de1802be86.jpg"
+                                    :src="product4"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
@@ -1090,7 +1098,7 @@ import camisa from '../../'
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src="https://futcardsfifa.com/app/uploads/2024/11/FC25-FUT-Showdown-min.png"
+                                    :src="product5"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
@@ -1168,7 +1176,7 @@ import camisa from '../../'
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src="https://futcardsfifa.com/app/uploads/2021/03/MILAN-min.png"
+                                    :src="product6"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
@@ -1246,7 +1254,7 @@ import camisa from '../../'
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src="https://futcardsfifa.com/app/uploads/2024/06/ESPANA-EUROCOPA-2024style2023.png"
+                                    :src="product7"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
@@ -1324,7 +1332,7 @@ import camisa from '../../'
                                 href="product-details.html"
                                 class="product-card__thumb flex items-center justify-center rounded-8 bg-gray-50 relative"
                                 ><img
-                                    src=""
+                                    :src="product8"
                                     alt="Image"
                                     class="!w-auto max-w-[unset]"
                             /></a>
