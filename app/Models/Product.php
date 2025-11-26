@@ -15,5 +15,10 @@ class Product extends Model
         'category_id',
         'gallery'
     ];
+    // Relación con categorías (1 producto → 1 categoría)
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
 

@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
 
@@ -11,7 +10,6 @@ Route::get('/admin/{any?}', function () {
 
 // Route Admin Auth
 Route::post('/admin/login', [AdminAuthController::class, 'login']);
-
 
 
 // Route Public

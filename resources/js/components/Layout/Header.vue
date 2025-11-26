@@ -6,7 +6,7 @@
             <nav class="header-inner flex-between">
                 <div class="logo">
                     <a href="index.html" class="link"
-                        ><img src="" alt="Logo" />
+                        ><img src="https://tse2.mm.bing.net/th/id/OIP.zcD4_mIe48lP3Hk3MUcYhAHaB7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo " />
                     </a>
                 </div>
                 <div class="flex items-center md:gap-[16px] max-sm:gap-0">

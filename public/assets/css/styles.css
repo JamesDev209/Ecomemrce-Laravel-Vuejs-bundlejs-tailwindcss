@@ -98529,6 +98529,11 @@ h6 {
 .\[\&\:\:-webkit-scrollbar\]\:w-2::-webkit-scrollbar {
   width: 0.5rem;
 }
+
+.bg-admin {
+  background-color: #117C6F;
+}
+
 /*!
  * Bootstrap Icons v1.11.1 (https://icons.getbootstrap.com/)
  * Copyright 2019-2023 The Bootstrap Authors

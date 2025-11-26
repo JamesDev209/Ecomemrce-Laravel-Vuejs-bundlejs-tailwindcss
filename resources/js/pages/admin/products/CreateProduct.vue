@@ -1,74 +1,103 @@
 <script setup>
 import Sidebar from '../components/Sidebar.vue';
-import { ref } from 'vue';
+import Swal from "sweetalert2";
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 
+// CAMPOS
 const name = ref('');
-const size = ref('');
-const brand = ref('');
 const category = ref('');
+const categories = ref([]); // 👈 Aquí guardamos la lista real del backend
 const cost = ref('');
 const description = ref('');
 const availability = ref('');
 const stock = ref('');
-const showSuccess = ref(false);
+const images = ref([]);
+const previewImages = ref([]);
 const errors = ref({});
-import axios from 'axios';
 
+// TOAST CONFIG
+const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+});
+
+// 🚀 Cargar categorías al iniciar
+onMounted(async () => {
+    try {
+        const res = await axios.get('/api/categories');
+        categories.value = res.data;
+    } catch (err) {
+        console.error("Error cargando categorías:", err);
+    }
+});
+
+// CREAR PRODUCTO
 async function addProduct() {
     errors.value = {};
-    showSuccess.value = false;
+
     try {
         const formData = new FormData();
         formData.append('name', name.value);
         formData.append('description', description.value);
         formData.append('price', cost.value);
         formData.append('stock', stock.value);
-        // category_id debe ser entero o null
-        const catId = getCategoryId();
-        if (catId !== null) {
-            formData.append('category_id', catId);
-        }
+
+        // 👇 Ahora category es ID real desde el backend
+        formData.append('category_id', category.value || null);
+
         formData.append('availability', availability.value);
+
         images.value.forEach((img, idx) => {
             formData.append(`gallery[${idx}]`, img);
         });
 
-        const response = await axios.post('/api/products', formData, {
+        await axios.post('/api/products', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         });
-        showSuccess.value = true;
-        setTimeout(() => {
-            showSuccess.value = false;
-        }, 2000);
-        // Limpiar campos si quieres
+
+        // TOAST ÉXITO
+        Toast.fire({
+            icon: 'success',
+            title: 'Producto creado con éxito'
+        });
+
+        // RESET FIELDS
+        name.value = "";
+        description.value = "";
+        cost.value = "";
+        stock.value = "";
+        availability.value = "";
+        category.value = ""; 
+        images.value = [];
+        previewImages.value = [];
+
     } catch (err) {
-        if (err.response && err.response.data && err.response.data.errors) {
+        if (err.response?.data?.errors) {
             errors.value = err.response.data.errors;
         } else {
             errors.value = { general: 'Error al crear el producto' };
         }
-        // Para debug
+
         console.error('Error al crear producto:', err);
+
+        Toast.fire({
+            icon: 'error',
+            title: 'Error al crear el producto'
+        });
     }
 }
 
-
-const images = ref([])
-const previewImages = ref([])
-
-// Ajuste: category_id debe ser entero
-function getCategoryId() {
-    // Si el select tiene value numérico, conviértelo, si no, retorna null
-    return category.value && !isNaN(category.value) ? parseInt(category.value) : null;
-}
-
+// PREVIEW DE IMÁGENES
 function onImagesChange(e) {
-    images.value = Array.from(e.target.files)
+    images.value = Array.from(e.target.files);
 
-    // Generate previews
-    previewImages.value = images.value.map(file => URL.createObjectURL(file))
+    previewImages.value = images.value.map(file => URL.createObjectURL(file));
 }
 </script>
 
@@ -130,23 +159,25 @@ function onImagesChange(e) {
                                                         </select>
                                                     </div> -->
                                                     <div class="xl:col-span-6 col-span-12">
-                                                        <label for="product-category-add" class="form-label">Category</label>
-                                                        <select class="form-control" data-trigger name="product-category-add" id="product-category-add" v-model="category">
-                                                            <option value="">Category</option>
-                                                            <option value="Clothing">Clothing</option>
-                                                            <option value="Footwear">Footwear</option>
-                                                            <option value="Accesories">Accesories</option>
-                                                            <option value="Grooming">Grooming</option>
-                                                            <option value="Ethnic & Festive">Ethnic & Festive</option>
-                                                            <option value="Jewellery">Jewellery</option>
-                                                            <option value="Toys & Babycare">Toys & Babycare</option>
-                                                            <option value="Festive Gifts">Festive Gifts</option>
-                                                            <option value="Kitchen">Kitchen</option>
-                                                            <option value="Dining">Dining</option>
-                                                            <option value="Home Decors">Home Decors</option>
-                                                            <option value="Stationery">Stationery</option>
-                                                        </select>
-                                                    </div>
+    <label for="product-category-add" class="form-label">Category</label>
+
+    <select 
+        class="form-control" 
+        id="product-category-add" 
+        v-model="category"
+    >
+        <option value="">Seleccionar categoría</option>
+
+        <option 
+            v-for="cat in categories" 
+            :key="cat.id" 
+            :value="cat.id"
+        >
+            {{ cat.name }}
+        </option>
+    </select>
+</div>
+
                                                     <div class="xl:col-span-6 col-span-12">
                                                         <label for="product-cost-add" class="form-label">Enter Cost</label>
                                                         <input type="text" class="form-control" id="product-cost-add" placeholder="Cost" v-model="cost">
@@ -168,7 +199,7 @@ function onImagesChange(e) {
 
                                                         <div class="grid grid-cols-3 gap-2 mt-3">
                                                             <div v-for="(img, index) in previewImages" :key="index">
-                                                                <img :src="img" class="w-full h-32 object-cover rounded" />
+                                                                <img :src="img" class="w-full h-32 object-cover rounded" /> 
                                                             </div>
                                                         </div>
 
@@ -195,10 +226,9 @@ function onImagesChange(e) {
                               
                                 </div>
                             </div>
-                            <div class="box-footer border-t border-block-start-dashed sm:flex justify-end">
-                                <button class="ti-btn bg-primarytint1color text-white me-2 mb-2 mb-sm-0" @click="addProduct" type="button">Add Product<i class="bi bi-plus-lg ms-2"></i></button>
-                                <button class="ti-btn ti-btn-primary mb-2 mb-sm-0">Save Product<i class="bi bi-download ms-2"></i></button>
-                            </div>
+                                <div class="box-footer border-t border-block-start-dashed sm:flex justify-end">
+                                    <button class="ti-btn bg-primarytint1color text-white me-2 mb-2 mb-sm-0" @click="addProduct" type="button">Crear Producto<i class="bi bi-plus-lg ms-2"></i></button>
+                                </div>
                         </div>
                     </div>
                 </div>

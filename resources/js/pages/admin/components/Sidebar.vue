@@ -4,11 +4,11 @@
 <template>
     <!-- /app-header -->
         <!-- Start::app-sidebar -->
-<aside class="app-sidebar" id="sidebar">
+<aside class="app-sidebar " id="sidebar">
     <!-- Start::main-sidebar-header -->
     <div class="main-sidebar-header">
         <a href="index.html" class="header-logo">
-            <img src="../assets/images/brand-logos/toku-logo.jpg" alt="logo" class="desktop-logo">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.zcD4_mIe48lP3Hk3MUcYhAHaB7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="logo" class="desktop-logo">
         </a>
     </div>
     <!-- End::main-sidebar-header -->
@@ -71,8 +71,12 @@
                                 <i class="ri-arrow-down-s-line side-menu__angle"></i></a>
                         </li>
                          <li class="slide has-sub">
-                            <a href="lista-productos-comercio.html" class="side-menu__item">Todos los productos
-                                <i class="ri-arrow-down-s-line side-menu__angle"></i></a>
+                            <router-link 
+                                :to="{ name: 'admin-products-index' }" 
+                                class="side-menu__item">
+                                Todos los productos
+                                <i class="ri-arrow-down-s-line side-menu__angle"></i>
+                            </router-link>
                         </li>
                         
                     </ul>
