@@ -10,13 +10,13 @@
     @vite(['resources/js/admin.js'])
     
     <!-- Tus estilos del dashboard -->
-    <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/libs/choices.js/public/assets/styles/choices.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/libs/node-waves/waves.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/libs/simplebar/simplebar.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/libs/filepond/filepond.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/libs/filepond/filepond.min.css') }}"> --}}
 <!-- Switch JS -->
 <script src="{{ asset('assets/js/switch.js') }}"></script>
 
@@ -58,7 +58,7 @@
 <script src="{{ asset('assets/libs/quill/quill.js') }}"></script>
 
 <!-- Filepond JS -->
-<script src="{{ asset('assets/libs/filepond/filepond.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/libs/filepond/filepond.min.js') }}"></script>
 <script src="{{ asset('assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js') }}"></script>
 <script src="{{ asset('assets/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js') }}"></script>
 <script src="{{ asset('assets/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js') }}"></script>
@@ -68,7 +68,7 @@
 <script src="{{ asset('assets/libs/filepond-plugin-file-validate-type/filepond-plugin-file-validate-type.min.js') }}"></script>
 <script src="{{ asset('assets/libs/filepond-plugin-image-crop/filepond-plugin-image-crop.min.js') }}"></script>
 <script src="{{ asset('assets/libs/filepond-plugin-image-resize/filepond-plugin-image-resize.min.js') }}"></script>
-<script src="{{ asset('assets/libs/filepond-plugin-image-transform/filepond-plugin-image-transform.min.js') }}"></script>
+<script src="{{ asset('assets/libs/filepond-plugin-image-transform/filepond-plugin-image-transform.min.js') }}"></script> --}}
 
 <!-- Internal Add Products JS -->
 <script src="{{ asset('assets/js/add-products.js') }}"></script>
@@ -110,9 +110,9 @@
     <link rel="stylesheet" href="{{ asset('assets/libs/quill/quill.bubble.css') }}">
 
     <!-- Filepond CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/libs/filepond/filepond.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/libs/filepond/filepond.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/libs/filepond-plugin-image-edit/filepond-plugin-image-edit.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/libs/filepond-plugin-image-edit/filepond-plugin-image-edit.min.css') }}"> --}}
 
     <!-- Date & Time Picker CSS -->
     <link rel="stylesheet" href="{{ asset('assets/libs/flatpickr/flatpickr.min.css') }}">

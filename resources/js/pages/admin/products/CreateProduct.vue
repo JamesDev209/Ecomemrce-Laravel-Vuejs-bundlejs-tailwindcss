@@ -223,7 +223,6 @@ function onImagesChange(e) {
                                             </div>
                                         </div>
                                     </div>
-                              
                                 </div>
                             </div>
                                 <div class="box-footer border-t border-block-start-dashed sm:flex justify-end">

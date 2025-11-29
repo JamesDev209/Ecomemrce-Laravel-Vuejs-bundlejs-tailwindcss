@@ -11,6 +11,5 @@ class CategoryController extends Controller
     {
         return Category::select('id', 'name')->get();
     }
-
 }
 

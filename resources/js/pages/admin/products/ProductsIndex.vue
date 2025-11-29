@@ -1,14 +1,6 @@
 <script setup>
 import Sidebar from "../components/Sidebar.vue";
-import { ref, onMounted } from "vue";
-import axios from "axios";
 
-const products = ref([]);
-
-onMounted(async () => {
-    const response = await axios.get("/api/products");
-    products.value = response.data;
-});
 </script>
 
 <template>
@@ -1950,7 +1942,7 @@ onMounted(async () => {
                                     <table class="ti-custom-table text-nowrap">
                                         <thead>
                                             <tr
-                                                class="border-b !border-defaultborder dark:!border-defaultborder/10"
+                                             class="border-b !border-defaultborder dark:!border-defaultborder/10"
                                             >
                                                 <th
                                                     scope="col"
@@ -1975,9 +1967,8 @@ onMounted(async () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr
-                                                class="product-list border-b !border-defaultborder dark:!border-defaultborder/10"
-                                            >
+                                                <tr v-for="product in products" :key="product.id" class="border-b !border-defaultborder dark:!border-defaultborder/10"
+    >
                                                 <td class="product-checkbox">
                                                     <input
                                                         class="form-check-input"
@@ -1997,16 +1988,12 @@ onMounted(async () => {
                                                                 alt="..."
                                                         /></span>
                                                         <div class="ms-2">
-                                                            <p
-                                                                class="font-semibold mb-0 flex items-center"
-                                                            >
-                                                                <a
-                                                                    href="javascript:void(0);"
-                                                                >
-                                                                    Wireless
-                                                                    Headphones</a
-                                                                >
-                                                            </p>
+                                                            <p class="font-semibold mb-0 flex items-center">
+    <a href="javascript:void(0);">
+        {{ product.name }}
+    </a>
+</p>
+
                                                             <p
                                                                 class="text-xs text-textmuted dark:text-textmuted/50 mb-0"
                                                             >

@@ -26,19 +26,14 @@
 
                 <!-- Start::slide -->
                 <li class="slide has-sub">
-                    <a href="javascript:void(0);" class="side-menu__item">
+                    <router-link
+                    :to="{ name: 'admin-dashboard' }"
+                    href="javascript:void(0);" class="side-menu__item">
                         
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
                         <span class="side-menu__label">Dashboard</span>
                         <i class="ri-arrow-down-s-line side-menu__angle"></i>
-                    </a>
-                    <ul class="slide-menu child1">
-                        <li class="slide has-sub">
-                            <a href="dashboard-admin.html" class="side-menu__item">Dashboard comercio
-                                <i class="ri-arrow-down-s-line side-menu__angle"></i></a>
-                        </li>                 
-                    </ul>
-                    
+                    </router-link>
                 </li>
                 <!-- End::slide -->
                  
@@ -71,37 +66,26 @@
                                 <i class="ri-arrow-down-s-line side-menu__angle"></i></a>
                         </li>
                          <li class="slide has-sub">
-                            <router-link 
+                            <!-- <router-link 
                                 :to="{ name: 'admin-products-index' }" 
                                 class="side-menu__item">
                                 Todos los productos
                                 <i class="ri-arrow-down-s-line side-menu__angle"></i>
-                            </router-link>
+                            </router-link> -->
                         </li>
                         
                     </ul>
-                </li>
+                </li>                
+        
                 <li class="slide has-sub">
-                    <a href="javascript:void(0);" class="side-menu__item">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
-                          </svg>
-                        <span class="side-menu__label">Categorias  de<br> comercios</span>
-                        <i class="ri-arrow-down-s-line side-menu__angle"></i>
-                    </a>
-                    <ul class="slide-menu child1">
-                         <li class="slide has-sub">
-                            <a href="categorias-subcategorias.html" class="side-menu__item">Categorias y subacategorias
-                                <i class="ri-arrow-down-s-line side-menu__angle"></i></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="slide has-sub">
-                    <a href="javascript:void(0);" class="side-menu__item">
+                    <router-link
+                    :to="{ name: 'admin-categories-index' }"
+                
+                    href="javascript:void(0);" class="side-menu__item">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
-                        <span class="side-menu__label">Historial de Pagos</span>
+                        <span class="side-menu__label"> Categorias</span>
                         <i class="ri-arrow-down-s-line side-menu__angle"></i>
-                    </a>
+                    </router-link>
                        <ul class="slide-menu child1">
                          <li class="slide has-sub">
                             <a href="historial-pagos-comercio.html" class="side-menu__item">Pagos comercio
@@ -129,8 +113,8 @@
                                 <i class="ri-arrow-down-s-line side-menu__angle"></i></a>
                         </li>
                     </ul>
+                    
                 </li>
-              
             
                 <!-- End::slide -->
             </ul>

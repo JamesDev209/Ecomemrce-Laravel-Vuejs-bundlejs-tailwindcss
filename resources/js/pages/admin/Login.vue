@@ -20,7 +20,7 @@ const login = async () => {
         router.push("/admin/dashboard");
     } catch (err) {
         errorMsg.value = "Credenciales incorrectas";
-        console.log(err);
+        console.log(err);   
     }
 };
 </script>
@@ -159,7 +159,7 @@ const login = async () => {
     50% {
         background-position: 100% 50%;
     }
-    100% {
+    100% {  
         background-position: 0 50%;
     }
 }

@@ -5,13 +5,15 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 
 
+Route::prefix('products')->group(function () {
+    Route::post('/', [ProductController::class, 'store']);
+    Route::get('/', [ProductController::class, 'index']);
+    Route::get('/{id}', [ProductController::class, 'show']);
+});
 
-Route::post('/products', [ProductController::class, 'store']);
-Route::get('/products', [ProductController::class, 'index']);
+//Rutas para categorías
+// Route::get('/categories', [CategoryController::class, 'index']);
 
-Route::get('/products/{id}', [ProductController::class, 'show']);
-
-Route::get('/categories', [CategoryController::class, 'index']);
 
 
 

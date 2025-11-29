@@ -1,0 +1,15 @@
+table categorias {
+  id int [pk, increment]
+  nombre varchar(100)
+  descripcion text
+  creado_en timestamp [default: `now()`]
+}
+
+table productos {
+  id int [pk, increment]
+  nombre varchar(100)
+  descripcion text
+  precio decimal(10, 2)
+  categoria_id int [ref: > categorias.id]
+  creado_en timestamp [default: `now()`]
+}

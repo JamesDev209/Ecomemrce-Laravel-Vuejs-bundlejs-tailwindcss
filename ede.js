@@ -3,7 +3,7 @@
 
 
 
-persona = [
+persona = [  //javascript mapea un arrat
     {
     name: "Shop",
     edad: "30",
