@@ -12,7 +12,7 @@ Route::prefix('products')->group(function () {
 });
 
 //Rutas para categorías
-// Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories', [CategoryController::class, 'index']);
 
 
 

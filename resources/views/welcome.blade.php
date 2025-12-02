@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue + Laravel</title>
+    <title>Maloka Store</title>
 
     {{-- Carga Vue + tus scripts compilados por Vite --}}
     @vite(['resources/js/app.js'])

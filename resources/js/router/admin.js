@@ -5,10 +5,11 @@ import Dashboard from "../pages/admin/Dashboard.vue";
 
 //Productos routes
 import CreateProduct from "../pages/admin/products/CreateProduct.vue";
+import ProductsList from "../pages/admin/products/ProductsList.vue";
 
+
+//Categorías routes
 import CategoriesIndex from "../pages/admin/categorias/CategoriesIndex.vue";
-
-
 
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
         path: "/admin/products/create",
         name: "admin-products-create",
         component: CreateProduct,
+    },
+    {
+        path: "/admin/products",
+        name: "admin-products-list",
+        component: ProductsList,
     },
     {
         path: "/admin/categories",
