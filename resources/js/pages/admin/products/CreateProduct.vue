@@ -19,7 +19,7 @@ const errors = ref({});
 // TOAST CONFIG
 const Toast = Swal.mixin({
     toast: true,
-    position: "top-end",
+    position: "top-end",    
     showConfirmButton: false,
     timer: 2000,
     timerProgressBar: true,
@@ -29,13 +29,12 @@ const Toast = Swal.mixin({
 onMounted(async () => {
     try {
         const res = await axios.get('/api/categories');
-        categories.value = res.data;
+        categories.value = res.data.categories; // <-- ¡Este es el cambio!
     } catch (err) {
         console.error("Error cargando categorías:", err);
     }
 });
 
-// CREAR PRODUCTO
 async function addProduct() {
     errors.value = {};
 
@@ -45,26 +44,16 @@ async function addProduct() {
         formData.append('description', description.value);
         formData.append('price', cost.value);
         formData.append('stock', stock.value);
-
-        // 👇 Ahora category es ID real desde el backend
         formData.append('category_id', category.value || null);
-
         formData.append('availability', availability.value);
 
-        images.value.forEach((img, idx) => {
-            formData.append(`gallery[${idx}]`, img);
-        });
+        // 📌 AGREGAR LA IMAGEN (solo 1)
+        if (image.value) {
+            formData.append('image', image.value);
+        }
 
         await axios.post('/api/products', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        });
-
-        // TOAST ÉXITO
-        Toast.fire({
-            icon: 'success',
-            title: 'Producto creado con éxito'
+            headers: { 'Content-Type': 'multipart/form-data' }
         });
 
         // RESET FIELDS
@@ -73,8 +62,8 @@ async function addProduct() {
         cost.value = "";
         stock.value = "";
         availability.value = "";
-        category.value = ""; 
-        images.value = [];
+        category.value = "";
+        image.value = null;
         previewImages.value = [];
 
     } catch (err) {
@@ -94,10 +83,16 @@ async function addProduct() {
 }
 
 // PREVIEW DE IMÁGENES
-function onImagesChange(e) {
-    images.value = Array.from(e.target.files);
+const image = ref(null);    
+const previewImage = ref(null);
 
-    previewImages.value = images.value.map(file => URL.createObjectURL(file));
+function onImageChange(e) {
+    const file = e.target.files[0];
+
+    if (file) {
+        image.value = file;
+        previewImage.value = URL.createObjectURL(file);
+    }
 }
 </script>
 
@@ -189,19 +184,16 @@ function onImagesChange(e) {
                                                         <label for="product-description-add" class="form-label mt-1 text-xs font-normal text-textmuted dark:text-textmuted/50 mb-0">*Description should not exceed 500 letters</label>
                                                     </div>
                                                     <div class="xl:col-span-12 col-span-12 product-documents-container">
-                                                        <p class="font-medium mb-2 text-[14px]">Product Images :</p>
+                                                        <p class="font-medium mb-2 text-[14px]">Product Image :</p>
                                                         <input 
-                                                            type="file" 
-                                                            class="product-Images" 
-                                                            multiple
-                                                            @change="onImagesChange"
+                                                            type="file"
+                                                            class="product-Images"
+                                                            @change="onImageChange"
                                                         />
 
-                                                        <div class="grid grid-cols-3 gap-2 mt-3">
-                                                            <div v-for="(img, index) in previewImages" :key="index">
-                                                                <img :src="img" class="w-full h-32 object-cover rounded" /> 
-                                                            </div>
-                                                        </div>
+                                                    <div v-if="previewImage" class="mt-3">
+                                                            <img :src="previewImage" class="w-full h-32 object-cover rounded" />
+                                                    </div>
 
                                                         <label class="form-label text-textmuted dark:text-textmuted/50 mt-3 font-normal text-xs">* Minimum of 6 images are need to be uploaded,
                                                             all images should be uniformly maintained, width and height to the container.

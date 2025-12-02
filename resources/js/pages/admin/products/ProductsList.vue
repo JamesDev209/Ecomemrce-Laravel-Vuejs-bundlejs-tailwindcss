@@ -19,6 +19,16 @@ const fetchProducts = async () => {
         loading.value = false;
     }
 };
+
+//Quitar los milisegundos a la creacion de fecha de producto
+function formatDate(date) {
+    return new Date(date).toLocaleDateString('es-CO', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+}
+
 onMounted(() => {
     fetchProducts();
 });
@@ -2000,27 +2010,27 @@ onMounted(() => {
                                                 </td>
                                                 <td>
                                                     <div class="flex">
-                                                        <span
-                                                            class="avatar avatar-md avatar-square bg-light"
-                                                            ><img
-                                                                src="../assets/images/ecommerce/png/30.png"
-                                                                class="w-full h-full"
-                                                                alt="..."
-                                                        /></span>
+                                                        <span class="avatar avatar-md avatar-square bg-light">
+                                                            <img
+                                                                :src="product.image ? `/storage/${product.image}` : '/placeholder.png'"
+                                                                class="w-full h-full object-cover"
+                                                                alt="product image"
+                                                            />
+                                                        </span>
+
                                                         <div class="ms-2">
                                                             <p class="font-semibold mb-0 flex items-center">
                                                                 <a href="javascript:void(0);">
                                                                     {{ product.name }}
                                                                 </a>
                                                             </p>
-                                                            <p
-                                                                class="text-xs text-textmuted dark:text-textmuted/50 mb-0"
-                                                            >
-                                                                SoundWave
+                                                            <p class="text-xs text-textmuted dark:text-textmuted/50 mb-0">
+                                                                {{ product.category?.name ?? 'Sin categoría' }}
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </td>
+
                                                 <td>
                                                     <span>{{product.category.name}}</span>
                                                 </td>
@@ -2029,7 +2039,7 @@ onMounted(() => {
                                                 <td>
                                                     <span
                                                         class="badge bg-primary/10 text-primary"
-                                                        >{{product.created_at}}</span
+                                                        >{{ formatDate(product.created_at) }}</span
                                                     >
                                                 </td>
                                                 <!-- <td>

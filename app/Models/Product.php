@@ -13,7 +13,7 @@ class Product extends Model
         'stock',
         'image',
         'category_id',
-        'gallery'
+        // 'gallery'
     ];
     // Relación con categorías (1 producto → 1 categoría)
     public function category()
