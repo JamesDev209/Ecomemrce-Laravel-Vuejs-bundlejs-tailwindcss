@@ -7,8 +7,10 @@
 
     <title>Panel Admin</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
     @vite(['resources/js/admin.js'])
-    
     <!-- Tus estilos del dashboard -->
     {{-- <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -18,44 +20,29 @@
     <link rel="stylesheet" href="{{ asset('assets/libs/simplebar/simplebar.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/libs/filepond/filepond.min.css') }}"> --}}
 <!-- Switch JS -->
-<script src="{{ asset('assets/js/switch.js') }}"></script>
-
-<!-- Popper JS -->
-<script src="{{ asset('assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
-
-<!-- Preline JS -->
-<script src="{{ asset('assets/libs/preline/preline.js') }}"></script>
-
-<!-- Defaultmenu JS -->
-<script src="{{ asset('assets/js/defaultmenu.min.js') }}"></script>
-
-<!-- Node Waves JS-->
-<script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
-
-<!-- Sticky JS -->
-<script src="{{ asset('assets/js/sticky.js') }}"></script>
 
 <!-- Simplebar JS -->
 <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
 <script src="{{ asset('assets/js/simplebar.js') }}"></script>
 
 <!-- Auto Complete JS -->
-<script src="{{ asset('assets/libs/@tarekraafat/autocomplete.js/autoComplete.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/libs/@tarekraafat/autocomplete.js/autoComplete.min.js') }}"></script> --}}
 
 <!-- Color Picker JS -->
-<script src="{{ asset('assets/libs/@simonwep/pickr/pickr.es5.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/libs/@simonwep/pickr/pickr.es5.min.js') }}"></script> --}}
 
 <!-- Date & Time Picker JS -->
-<script src="{{ asset('assets/libs/flatpickr/flatpickr.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/libs/flatpickr/flatpickr.min.js') }}"></script> --}}
 
 <!-- Custom-Switcher JS -->
-<script src="{{ asset('assets/js/custom-switcher.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/custom-switcher.min.js') }}"></script> --}}
 
 <!-- Date & Time Picker JS -->
 <script src="{{ asset('assets/libs/flatpickr/flatpickr.min.js') }}"></script>
 
 <!-- Quill Editor JS -->
 <script src="{{ asset('assets/libs/quill/quill.js') }}"></script>
+
 
 <!-- Filepond JS -->
 {{-- <script src="{{ asset('assets/libs/filepond/filepond.min.js') }}"></script>
@@ -77,6 +64,8 @@
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 
     
+
+
     <script src="{{ asset('assets/libs/choices.js/public/assets/scripts/choices.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/simplebar.js') }}"></script>
@@ -106,8 +95,8 @@
     <!-- Simplebar Css -->
     <link href="{{ asset('assets/libs/simplebar/simplebar.min.css') }}" rel="stylesheet" >
 
-    <link rel="stylesheet" href="{{ asset('assets/libs/quill/quill.snow.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/libs/quill/quill.bubble.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/libs/quill/quill.snow.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/libs/quill/quill.bubble.css') }}"> --}}
 
     <!-- Filepond CSS -->
     {{-- <link rel="stylesheet" href="{{ asset('assets/libs/filepond/filepond.min.css') }}">

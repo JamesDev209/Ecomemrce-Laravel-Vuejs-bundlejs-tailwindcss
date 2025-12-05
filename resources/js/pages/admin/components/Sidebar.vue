@@ -1,5 +1,18 @@
 <script setup>
+import { useRoute } from "vue-router";
+import { computed } from "vue";
 
+const route = useRoute();
+
+// Devuelve true si la ruta actual empieza con /admin/products
+const isProductsActive = computed(() => {
+    return route.path.startsWith("/admin/products");
+});
+
+// Devuelve true si la ruta actual es el dashboard
+const isDashboardActive = computed(() => {
+    return route.name === "admin-dashboard";
+});
 </script>
 
 <template>
@@ -19,7 +32,7 @@
         <!-- End::main-sidebar-header -->
 
         <!-- Start::main-sidebar -->
-        <div class="main-sidebar" id="sidebar-scroll">
+        <div data-sidebar-styles="gradientSidebar" class="main-sidebar app-sidebar " id="sidebar-scroll">
             <!-- Start::nav -->
             <nav class="main-menu-container nav nav-pills flex-col sub-open">
                 <div class="slide-left" id="slide-left">
@@ -36,11 +49,10 @@
                     </svg>
                 </div>
                 <ul class="main-menu">
-                    <!-- Start::slide -->
-                    <li class="slide has-sub">
+                    <!-- Start::slide (Dashboard) -->
+                    <li class="slide" :class="{ active: isDashboardActive }">
                         <router-link
                             :to="{ name: 'admin-dashboard' }"
-                            href="javascript:void(0);"
                             class="side-menu__item"
                         >
                             <svg
@@ -58,15 +70,15 @@
                                 />
                             </svg>
                             <span class="side-menu__label">Dashboard</span>
-                            <i
-                                class="ri-arrow-down-s-line side-menu__angle"
-                            ></i>
                         </router-link>
                     </li>
                     <!-- End::slide -->
 
-                    <!-- Start::slide -->
-                    <li class="slide has-sub">
+                    <!-- Start::slide (Productos) -->
+                    <li
+                        class="slide has-sub"
+                        :class="{ 'open active': isProductsActive }"
+                    >
                         <a href="javascript:void(0);" class="side-menu__item">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -88,45 +100,30 @@
                             ></i>
                         </a>
                         <ul class="slide-menu child1">
-                            <li class="slide has-sub">
-                                <a
-                                    href="productos-comercio.html"
-                                    class="side-menu__item"
-                                    >Subir productos
-                                    <i
-                                        class="ri-arrow-down-s-line side-menu__angle"
-                                    ></i
-                                ></a>
-                            </li>
-                            <li class="slide has-sub">
+                            <li class="slide">
                                 <router-link
                                     :to="{ name: 'admin-products-create' }"
                                     class="side-menu__item"
+                                    active-class="active"
                                 >
                                     Crear productos
-                                    <i
-                                        class="ri-arrow-down-s-line side-menu__angle"
-                                    ></i>
                                 </router-link>
                             </li>
-
-                            <li class="slide has-sub">
+                            <li class="slide">
                                 <a
                                     href="editar-producto.html"
                                     class="side-menu__item"
-                                    >Editar produtos
-                                    <i
-                                        class="ri-arrow-down-s-line side-menu__angle"
-                                    ></i
-                                ></a>
+                                    >Editar produtos</a
+                                >
                             </li>
-                            <li class="slide has-sub">
-                                <router-link  
-                                :to="{ name: 'admin-products-list' }"
-                                class="side-menu__item">
-                                Todos los productos
-                                <i class="ri-arrow-down-s-line side-menu__angle"></i>
-                            </router-link>
+                            <li class="slide">
+                                <router-link
+                                    :to="{ name: 'admin-products-list' }"
+                                    class="side-menu__item"
+                                    active-class="active"
+                                >
+                                    Todos los productos
+                                </router-link>
                             </li>
                         </ul>
                     </li>
@@ -135,6 +132,7 @@
                         <router-link
                             :to="{ name: 'admin-categories-index' }"
                             class="side-menu__item"
+                            active-class="active"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -157,60 +155,6 @@
                             </svg>
                             <span class="side-menu__label">Categorias</span>
                         </router-link>
-                    </li>
-                    <li class="slide has-sub">
-                        <a href="javascript:void(0);" class="side-menu__item">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-6 h-6 side-menu__icon"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                                />
-                            </svg>
-                            <span class="side-menu__label">Ordenes</span>
-                            <i
-                                class="ri-arrow-down-s-line side-menu__angle"
-                            ></i>
-                        </a>
-                        <ul class="slide-menu child1">
-                            <li class="slide has-sub">
-                                <a
-                                    href="ordenes-activas.html"
-                                    class="side-menu__item"
-                                    >Ordenes activas
-                                    <i
-                                        class="ri-arrow-down-s-line side-menu__angle"
-                                    ></i
-                                ></a>
-                            </li>
-                            <li class="slide has-sub">
-                                <a
-                                    href="ordenes-comercio.html"
-                                    class="side-menu__item"
-                                    >Reporte de ordenes
-                                    <i
-                                        class="ri-arrow-down-s-line side-menu__angle"
-                                    ></i
-                                ></a>
-                            </li>
-                            <li class="slide has-sub">
-                                <a
-                                    href="detalles-orden.html"
-                                    class="side-menu__item"
-                                    >Detalles de orden
-                                    <i
-                                        class="ri-arrow-down-s-line side-menu__angle"
-                                    ></i
-                                ></a>
-                            </li>
-                        </ul>
                     </li>
 
                     <!-- End::slide -->

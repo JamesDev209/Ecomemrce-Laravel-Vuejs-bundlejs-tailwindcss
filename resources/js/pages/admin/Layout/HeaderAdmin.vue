@@ -3,7 +3,7 @@ import Sidebar from '../components/Sidebar.vue';
 </script>
 
 <template>
-    
+    <h1>jola</h1>
     <div class="page">
         <!-- app-header -->
 <header class="app-header sticky" id="header">
@@ -1531,7 +1531,7 @@ import Sidebar from '../components/Sidebar.vue';
             <div class="ti-modal-content">
                 <div class="ti-modal-body">
                     <div class="input-group">
-                        <input type="text" class="form-control border-end-0 !border-s" placeholder="Search Anything ..."
+                        <input type="text" class="form-control border-end-0 !border-s" placeholder="Search Adnything ..."
                             aria-label="Search Anything ..." aria-describedby="button-addon2">
                         <button class="ti-btn ti-btn-primary !m-0" type="button"
                             id="button-addon2"><i class="bi bi-search"></i></button>

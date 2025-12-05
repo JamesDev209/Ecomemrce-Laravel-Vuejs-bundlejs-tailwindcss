@@ -98544,3 +98544,14 @@ h6 {
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 /*! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com*/
+
+
+[data-sidebar-styles="gradientSidebar"] .app-sidebar {
+    --sidebar-prime-color: 255 255 255;
+    border-color: rgb(255 255 255 / 0.2) !important;
+    background-image: linear-gradient(to bottom, var(--tw-gradient-stops)) !important;
+    --tw-gradient-from: rgb(var(--primary)) var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgb(var(--primary) / 0) var(--tw-gradient-to-position) !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+    --tw-gradient-to: #FF3DBB var(--tw-gradient-to-position) !important;
+}
