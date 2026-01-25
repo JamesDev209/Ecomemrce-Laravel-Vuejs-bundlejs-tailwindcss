@@ -22,8 +22,11 @@
 <!-- Switch JS -->
 
 <!-- Simplebar JS -->
-<script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
-<script src="{{ asset('assets/js/simplebar.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/libs/tom-select/css/tom-select.default.min.css') }}">
+{{-- <script src="{{ asset('assets/js/simplebar.js') }}"></script> --}}
 
 <!-- Auto Complete JS -->
 {{-- <script src="{{ asset('assets/libs/@tarekraafat/autocomplete.js/autoComplete.min.js') }}"></script> --}}
@@ -37,8 +40,7 @@
 <!-- Custom-Switcher JS -->
 {{-- <script src="{{ asset('assets/js/custom-switcher.min.js') }}"></script> --}}
 
-<!-- Date & Time Picker JS -->
-<script src="{{ asset('assets/libs/flatpickr/flatpickr.min.js') }}"></script>
+
 
 <!-- Quill Editor JS -->
 <script src="{{ asset('assets/libs/quill/quill.js') }}"></script>
@@ -58,10 +60,10 @@
 <script src="{{ asset('assets/libs/filepond-plugin-image-transform/filepond-plugin-image-transform.min.js') }}"></script> --}}
 
 <!-- Internal Add Products JS -->
-<script src="{{ asset('assets/js/add-products.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/add-products.js') }}"></script> --}}
 
-<!-- Custom JS -->
-<script src="{{ asset('assets/js/custom.js') }}"></script>
+{{-- <!-- Custom JS -->
+<script src="{{ asset('assets/js/custom.js') }}"></script> --}}
 
     
 
@@ -70,7 +72,7 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/simplebar.js') }}"></script>
     <script src="{{ asset('assets/js/toggle.js') }}"></script>
-    <script src="{{ asset('assets/libs/filepond/filepond.min.js') }}"></script>
+
 
 
 
@@ -85,6 +87,11 @@
 
     <!-- Main Theme Js -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    
+    <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/tom-select/js/tom-select.complete.js') }}"></script>
 
     <!-- Style Css -->
     <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" >
@@ -103,8 +110,6 @@
     <link rel="stylesheet" href="{{ asset('assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/libs/filepond-plugin-image-edit/filepond-plugin-image-edit.min.css') }}"> --}}
 
-    <!-- Date & Time Picker CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/libs/flatpickr/flatpickr.min.css') }}">
 </head>
 <body>
     <div id="admin"></div>

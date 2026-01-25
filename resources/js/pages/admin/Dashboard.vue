@@ -1,11 +1,15 @@
 <script setup>
 import HeaderAdmin from './Layout/HeaderAdmin.vue';
-import Nav from './components/Nav.vue';
+
 
 </script>
 
 
 <template>
+        <h1>HOLLALALSDDDDDDDDDDDDKSKAKDKAKKKKKKKKKKKKKKKKKKKKKKKKKKLAL</h1>
     <Nav />
-    <HeaderAdmin />s
+    <HeaderAdmin />
+
+
+
 </template>

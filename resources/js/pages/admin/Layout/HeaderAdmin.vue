@@ -1,5 +1,6 @@
 <script setup>
-import Sidebar from '../components/Sidebar.vue';
+
+
 </script>
 
 <template>
@@ -372,9 +373,6 @@ import Sidebar from '../components/Sidebar.vue';
 <!-- /app-header -->
 
 
-<!--SIDEBAR INIT-->
-
-<Sidebar/>
 
         <!-- Start::app-content -->
         <div class="main-content app-content">

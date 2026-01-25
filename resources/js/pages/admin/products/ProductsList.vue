@@ -1,6 +1,5 @@
 <script setup>
-import Sidebar from "../components/Sidebar.vue";
-import AdminNabvar from "../Layout/AdminNabvar.vue";
+
 
 import { ref, onMounted } from "vue";
 import axios from "axios";  
@@ -13,7 +12,7 @@ const fetchProducts = async () => {
     // Lógica para obtener productos
     try {
         const res = await axios.get("/api/products");
-        products.value = res.data.products; // <-- ¡Este es el cambio!
+        products.value = res.data.products;
     } catch (error) {
         console.error("Error cargando productos:", error);
     } finally {
@@ -909,27 +908,6 @@ onMounted(() => {
                 <div
                     class="flex items-center justify-between page-header-breadcrumb flex-wrap gap-2"
                 >
-                    <div>
-                        <nav>
-                            <ol class="breadcrumb mb-1">
-                                <li class="breadcrumb-item">
-                                    <a href="javascript:void(0);">Apps</a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="javascript:void(0);">Ecommerce</a>
-                                </li>
-                                <li
-                                    class="breadcrumb-item active"
-                                    aria-current="page"
-                                >
-                                    Products List
-                                </li>
-                            </ol>
-                        </nav>
-                        <h1 class="page-title font-medium text-lg mb-0">
-                            Products List
-                        </h1>
-                    </div>
                     <div class="btn-list">
                         <button
                             class="ti-btn bg-white dark:bg-bodybg border border-defaultborder dark:border-defaultborder/10 btn-wave !my-0"

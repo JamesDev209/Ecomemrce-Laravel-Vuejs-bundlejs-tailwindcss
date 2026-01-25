@@ -1,15 +1,28 @@
 <script setup>
 import { useRoute } from "vue-router";
-import { computed } from "vue";
+import { computed, ref, watch } from "vue";
 
 const route = useRoute();
 
-// Devuelve true si la ruta actual empieza con /admin/products
 const isProductsActive = computed(() => {
     return route.path.startsWith("/admin/products");
 });
 
-// Devuelve true si la ruta actual es el dashboard
+const isProductsMenuOpen = ref(false);
+
+watch(
+    () => route.path,
+    (path) => {
+        isProductsMenuOpen.value = path.startsWith("/admin/products");
+    },
+    { immediate: true }
+);
+
+
+const toggleProductsMenu = () => {
+    isProductsMenuOpen.value = !isProductsMenuOpen.value;
+};
+
 const isDashboardActive = computed(() => {
     return route.name === "admin-dashboard";
 });
@@ -32,7 +45,11 @@ const isDashboardActive = computed(() => {
         <!-- End::main-sidebar-header -->
 
         <!-- Start::main-sidebar -->
-        <div data-sidebar-styles="gradientSidebar" class="main-sidebar app-sidebar " id="sidebar-scroll">
+        <div
+            data-sidebar-styles="gradientSidebar"
+            class="main-sidebar app-sidebar"
+            id="sidebar-scroll"
+        >
             <!-- Start::nav -->
             <nav class="main-menu-container nav nav-pills flex-col sub-open">
                 <div class="slide-left" id="slide-left">
@@ -77,9 +94,16 @@ const isDashboardActive = computed(() => {
                     <!-- Start::slide (Productos) -->
                     <li
                         class="slide has-sub"
-                        :class="{ 'open active': isProductsActive }"
+                        :class="{
+                            open: isProductsMenuOpen,
+                            active: isProductsActive,
+                        }"
                     >
-                        <a href="javascript:void(0);" class="side-menu__item">
+                        <a
+                            href="javascript:void(0);"
+                            class="side-menu__item"
+                            @click.prevent="toggleProductsMenu"
+                        >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="w-6 h-6 side-menu__icon"
@@ -156,7 +180,6 @@ const isDashboardActive = computed(() => {
                             <span class="side-menu__label">Categorias</span>
                         </router-link>
                     </li>
-
                     <!-- End::slide -->
                 </ul>
                 <div class="slide-right" id="slide-right">

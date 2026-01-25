@@ -1,3 +1,9 @@
+
+<script setup>
+import { ref } from "vue";
+import logo from '../../../../public/img/JUMLA.png'
+</script>
+
 <template>
     <link href="/css/app.min.css" rel="stylesheet" />
 
@@ -6,298 +12,81 @@
             <nav class="header-inner flex-between">
                 <div class="logo">
                     <a href="index.html" class="link"
-                        ><img src="https://tse2.mm.bing.net/th/id/OIP.zcD4_mIe48lP3Hk3MUcYhAHaB7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo " />
+                        ><img
+                            :src="logo"
+                            alt="Logo "
+                        />
                     </a>
                 </div>
-                <div class="flex items-center md:gap-[16px] max-sm:gap-0">
-                    <div class="select-dropdown-for-home-two xl:hidden block">
-                        <ul
-                            class="header-top__right style-two flex items-center flex-wrap"
-                        >
-                            <li
-                                class="on-hover-item border-right-item border-right-item-sm-space has-submenu arrow-white"
-                            >
-                                <a
-                                    href="javascript:void(0)"
-                                    class="selected-text text-heading text-sm py-8"
-                                    >Eng</a
-                                >
-                                <ul
-                                    class="selectable-text-list on-hover-dropdown common-dropdown common-dropdown--sm max-h-200 scroll-sm !px-0 py-8"
-                                >
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            English</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            Japan</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            French</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            Germany</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            Bangladesh</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            South Korea</a
-                                        >
-                                    </li>
-                                </ul>
-                            </li>
-                            <li
-                                class="on-hover-item border-right-item border-right-item-sm-space has-submenu arrow-white"
-                            >
-                                <a
-                                    href="javascript:void(0)"
-                                    class="selected-text text-heading text-sm py-8"
-                                    >USD</a
-                                >
-                                <ul
-                                    class="selectable-text-list on-hover-dropdown common-dropdown common-dropdown--sm max-h-200 scroll-sm px-0 py-8"
-                                >
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            USD</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            Yen</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            Franc</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            EURO</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            BDT</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            WON</a
-                                        >
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- <form
-                        action="#"
-                        class="flex items-center flex-wrap form-location-wrapper"
-                    >
+    <!-- 
+                    <div class="header-right items-center xl:block hidden">
                         <div
-                            class="search-category style-two h-48 search-form md:flex hidden"
+                            class="header-two-activities flex items-center flex-wrap gap-32"
                         >
-                            <select
-                                class="js-example-basic-single border-gray-200 border-r-0 rounded-none border-0"
-                                name="state"
-                            >
-                                <option
-                                    value="1"
-                                    selected="selected"
-                                    disabled="disabled"
-                                >
-                                    All Categories
-                                </option>
-                                <option value="1">Grocery</option>
-                                <option value="1">Breakfast & Dairy</option>
-                                <option value="1">Vegetables</option>
-                                <option value="1">Milks and Dairies</option>
-                                <option value="1">Pet Foods & Toy</option>
-                                <option value="1">Breads & Bakery</option>
-                                <option value="1">Fresh Seafood</option>
-                                <option value="1">Fronzen Foods</option>
-                                <option value="1">Noodles & Rice</option>
-                                <option value="1">Ice Cream</option>
-                            </select>
-                            <div class="search-form__wrapper relative">
-                                <input
-                                    class="search-form__input common-input py-13 ps-16 pe-18 rounded-none border-0"
-                                    placeholder="Search for a product or brand"
-                                />
-                            </div>
                             <button
-                                type="submit"
-                                class="bg-main-two-600 items-center justify-center text-xl text-white flex-shrink-0 w-48 hover-bg-main-two-700 xl:flex hidden"
+                                type="button"
+                                class="items-center search-icon xl:hidden flex gap-4 item-hover-two"
                             >
-                                <i class="ph ph-magnifying-glass"></i>
+                                <span
+                                    class="text-2xl text-white flex relative item-hover__text"
+                                    ><i class="ph ph-magnifying-glass"></i
+                                ></span>
                             </button>
+                            <a
+                                href="account.html"
+                                class="flex items-center flex-col gap-8 item-hover-two"
+                                ><span
+                                    class="text-2xl text-white flex relative item-hover__text"
+                                    ><i class="ph ph-user"></i> </span
+                                ><span
+                                    class="text-md text-white item-hover__text hidden xl:flex"
+                                    >Profile</span
+                                > </a
+                            ><a
+                                href="wishlist.html"
+                                class="flex items-center flex-col gap-8 item-hover-two"
+                                ><span
+                                    class="text-2xl text-white flex relative me-6 mt-6 item-hover__text"
+                                    ><i class="ph ph-heart"></i>
+                                    <span
+                                        class="w-16 h-16 flex items-center justify-center rounded-[50%] bg-main-two-600 text-white text-xs absolute top-n6 end-n4"
+                                        >2</span
+                                    > </span
+                                ><span
+                                    class="text-md text-white item-hover__text hidden xl:flex"
+                                    >Wishlist</span
+                                > </a
+                            ><a
+                                href="cart.html"
+                                class="flex items-center flex-col gap-8 item-hover-two"
+                                ><span
+                                    class="text-2xl text-white flex relative me-6 mt-6 item-hover__text"
+                                    ><i class="ph-fill ph-shuffle"></i>
+                                    <span
+                                        class="w-16 h-16 flex items-center justify-center rounded-[50%] bg-main-two-600 text-white text-xs absolute top-n6 end-n4"
+                                        >2</span
+                                    > </span
+                                ><span
+                                    class="text-md text-white item-hover__text hidden xl:flex"
+                                    >Compare</span
+                                > </a
+                            ><a
+                                href="cart.html"
+                                class="flex items-center flex-col gap-8 item-hover-two"
+                                ><span
+                                    class="text-2xl text-white flex relative me-6 mt-6 item-hover__text"
+                                    ><i class="ph ph-shopping-cart-simple"></i>
+                                    <span
+                                        class="w-16 h-16 flex items-center justify-center rounded-[50%] bg-main-two-600 text-white text-xs absolute top-n6 end-n4"
+                                        >2</span
+                                    > </span
+                                ><span
+                                    class="text-md text-white item-hover__text hidden xl:flex"
+                                    >Cart</span
+                                ></a
+                            >
                         </div>
-                    </form> -->
-                </div>
-                <div class="header-right items-center xl:block hidden">
-                    <div
-                        class="header-two-activities flex items-center flex-wrap gap-32"
-                    >
-                        <button
-                            type="button"
-                            class="items-center search-icon xl:hidden flex gap-4 item-hover-two"
-                        >
-                            <span
-                                class="text-2xl text-white flex relative item-hover__text"
-                                ><i class="ph ph-magnifying-glass"></i
-                            ></span>
-                        </button>
-                        <a
-                            href="account.html"
-                            class="flex items-center flex-col gap-8 item-hover-two"
-                            ><span
-                                class="text-2xl text-white flex relative item-hover__text"
-                                ><i class="ph ph-user"></i> </span
-                            ><span
-                                class="text-md text-white item-hover__text hidden xl:flex"
-                                >Profile</span
-                            > </a
-                        ><a
-                            href="wishlist.html"
-                            class="flex items-center flex-col gap-8 item-hover-two"
-                            ><span
-                                class="text-2xl text-white flex relative me-6 mt-6 item-hover__text"
-                                ><i class="ph ph-heart"></i>
-                                <span
-                                    class="w-16 h-16 flex items-center justify-center rounded-[50%] bg-main-two-600 text-white text-xs absolute top-n6 end-n4"
-                                    >2</span
-                                > </span
-                            ><span
-                                class="text-md text-white item-hover__text hidden xl:flex"
-                                >Wishlist</span
-                            > </a
-                        ><a
-                            href="cart.html"
-                            class="flex items-center flex-col gap-8 item-hover-two"
-                            ><span
-                                class="text-2xl text-white flex relative me-6 mt-6 item-hover__text"
-                                ><i class="ph-fill ph-shuffle"></i>
-                                <span
-                                    class="w-16 h-16 flex items-center justify-center rounded-[50%] bg-main-two-600 text-white text-xs absolute top-n6 end-n4"
-                                    >2</span
-                                > </span
-                            ><span
-                                class="text-md text-white item-hover__text hidden xl:flex"
-                                >Compare</span
-                            > </a
-                        ><a
-                            href="cart.html"
-                            class="flex items-center flex-col gap-8 item-hover-two"
-                            ><span
-                                class="text-2xl text-white flex relative me-6 mt-6 item-hover__text"
-                                ><i class="ph ph-shopping-cart-simple"></i>
-                                <span
-                                    class="w-16 h-16 flex items-center justify-center rounded-[50%] bg-main-two-600 text-white text-xs absolute top-n6 end-n4"
-                                    >2</span
-                                > </span
-                            ><span
-                                class="text-md text-white item-hover__text hidden xl:flex"
-                                >Cart</span
-                            ></a
-                        >
-                    </div>
-                </div>
+                    </div> -->
             </nav>
         </div>
     </header>
@@ -907,9 +696,8 @@
                             <span class="icon text-2xl sm:flex hidden"
                                 ><i class="ph ph-dots-nine"></i
                             ></span>
-                            <span class="md:flex hidden">Jumla</span> Emogi
+                            <span class="md:flex hidden">Jumla</span> 
                             <span class="arrow-icon text-xl flex"
-                                ><i class="ph ph-caret-down"></i
                             ></span>
                         </button>
                         <div
@@ -926,7 +714,6 @@
                                     ><img src="" alt="Logo"
                                 /></a>
                             </div>
-                 
                         </div>
                     </div>
                     <div class="header-menu xl:block hidden">
@@ -937,19 +724,19 @@
                                 <a
                                     href="javascript:void(0)"
                                     class="nav-menu__link"
-                                    >Home</a
+                                    >Inicio</a
                                 >
                                 <ul
                                     class="on-hover-dropdown common-dropdown nav-submenu scroll-sm"
                                 >
-                                <li
+                                    <li
                                         class="common-dropdown__item nav-submenu__item"
                                     >
                                         <RouterLink
                                             to="/"
                                             class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
                                         >
-                                            Home
+                                            Inicio
                                         </RouterLink>
                                     </li>
                                     <!-- <li
@@ -975,163 +762,39 @@
                             <li
                                 class="on-hover-item nav-menu__item has-submenu"
                             >
+                            <span
+                                    class="badge-notification bg-warning-600 text-white text-sm py-2 px-8 rounded-4"
+                                    >New</span
+                                >   
                                 <a
                                     href="javascript:void(0)"
                                     class="nav-menu__link"
-                                    >Shop</a
+                                    >Tienda</a
                                 >
                                 <ul
                                     class="on-hover-dropdown common-dropdown nav-submenu scroll-sm"
                                 >
+                                
                                     <li
                                         class="common-dropdown__item nav-submenu__item"
                                     >
+                                    
                                         <RouterLink
                                             to="/shop"
                                             class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
                                         >
-                                            Shop
+                                            Tienda
                                         </RouterLink>
-                                    </li>
-
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="product-details.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Shop Details</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="product-details-two.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Shop Details Two</a
-                                        >
-                                    </li>
+                                    </li>   
                                 </ul>
                             </li>
                             <li
                                 class="on-hover-item nav-menu__item has-submenu"
                             >
-                                <span
-                                    class="badge-notification bg-warning-600 text-white text-sm py-2 px-8 rounded-4"
-                                    >New</span
-                                >
-                                <a
-                                    href="javascript:void(0)"
-                                    class="nav-menu__link"
-                                    >Pages</a
-                                >
-                                <ul
-                                    class="on-hover-dropdown common-dropdown nav-submenu scroll-sm"
-                                >
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="cart.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Cart</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="wishlist.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Wishlist</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="checkout.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Checkout</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="become-seller.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Become Seller</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="account.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Account</a
-                                        >
-                                    </li>
-                                </ul>
-                            </li>
-                            <li
-                                class="on-hover-item nav-menu__item has-submenu"
-                            >
-                                <span
+                             <span
                                     class="badge-notification bg-tertiary-600 text-white text-sm py-2 px-8 rounded-4"
                                     >New</span
                                 >
-                                <a
-                                    href="javascript:void(0)"
-                                    class="nav-menu__link"
-                                    >Vendors</a
-                                >
-                                <ul
-                                    class="on-hover-dropdown common-dropdown nav-submenu scroll-sm"
-                                >
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="vendor.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Vendors</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="vendor-details.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Vendor Details</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="vendor-two.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Vendors Two</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="common-dropdown__item nav-submenu__item"
-                                    >
-                                        <a
-                                            href="vendor-two-details.html"
-                                            class="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                            >Vendors Two Details</a
-                                        >
-                                    </li>
-                                </ul>
-                            </li>
-                            <li
-                                class="on-hover-item nav-menu__item has-submenu"
-                            >
                                 <a
                                     href="javascript:void(0)"
                                     class="nav-menu__link"
@@ -1162,269 +825,13 @@
                             </li>
                             <li class="nav-menu__item">
                                 <a href="contact.html" class="nav-menu__link"
-                                    >Contact Us</a
+                                    >Contacto</a
                                 >
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="header-right flex items-center">
-                    <div class="select-dropdown-for-home-two xl:block hidden">
-                        <ul
-                            class="header-top__right style-two flex items-center flex-wrap"
-                        >
-                            <li
-                                class="on-hover-item border-right-item border-right-item-sm-space has-submenu arrow-white"
-                            >
-                                <a
-                                    href="javascript:void(0)"
-                                    class="selected-text text-heading text-sm py-8"
-                                    >Eng</a
-                                >
-                                <ul
-                                    class="selectable-text-list on-hover-dropdown common-dropdown common-dropdown--sm max-h-200 scroll-sm !px-0 py-8"
-                                >
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            English</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            Japan</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            French</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            Germany</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            Bangladesh</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            South Korea</a
-                                        >
-                                    </li>
-                                </ul>
-                            </li>
-                            <li
-                                class="on-hover-item border-right-item border-right-item-sm-space has-submenu arrow-white"
-                            >
-                                <a
-                                    href="javascript:void(0)"
-                                    class="selected-text text-heading text-sm py-8"
-                                    >USD</a
-                                >
-                                <ul
-                                    class="selectable-text-list on-hover-dropdown common-dropdown common-dropdown--sm max-h-200 scroll-sm px-0 py-8"
-                                >
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            USD</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            Yen</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            Franc</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            EURO</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            BDT</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="javascript:void(0)"
-                                            class="hover-bg-gray-100 text-gray-500 text-xs py-6 px-16 flex items-center gap-8 rounded-none"
-                                            ><img
-                                                src=""
-                                                alt="Image"
-                                                class="w-16 h-12 rounded-4 border border-gray-100"
-                                            />
-                                            WON</a
-                                        >
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="me-8 xl:hidden block">
-                        <div
-                            class="header-two-activities flex items-center flex-wrap gap-32"
-                        >
-                            <button
-                                type="button"
-                                class="items-center search-icon xl:hidden flex gap-4 item-hover-two"
-                            >
-                                <span
-                                    class="text-2xl text-white flex relative item-hover__text"
-                                    ><i class="ph ph-magnifying-glass"></i
-                                ></span>
-                            </button>
-                            <a
-                                href="account.html"
-                                class="flex items-center flex-col gap-8 item-hover-two"
-                                ><span
-                                    class="text-2xl text-white flex relative item-hover__text"
-                                    ><i class="ph ph-user"></i> </span
-                                ><span
-                                    class="text-md text-white item-hover__text hidden xl:flex"
-                                    >Profile</span
-                                > </a
-                            ><a
-                                href="wishlist.html"
-                                class="flex items-center flex-col gap-8 item-hover-two"
-                                ><span
-                                    class="text-2xl text-white flex relative me-6 mt-6 item-hover__text"
-                                    ><i class="ph ph-heart"></i>
-                                    <span
-                                        class="w-16 h-16 flex items-center justify-center rounded-[50%] bg-main-two-600 text-white text-xs absolute top-n6 end-n4"
-                                        >2</span
-                                    > </span
-                                ><span
-                                    class="text-md text-white item-hover__text hidden xl:flex"
-                                    >Wishlist</span
-                                > </a
-                            ><a
-                                href="cart.html"
-                                class="flex items-center flex-col gap-8 item-hover-two"
-                                ><span
-                                    class="text-2xl text-white flex relative me-6 mt-6 item-hover__text"
-                                    ><i class="ph-fill ph-shuffle"></i>
-                                    <span
-                                        class="w-16 h-16 flex items-center justify-center rounded-[50%] bg-main-two-600 text-white text-xs absolute top-n6 end-n4"
-                                        >2</span
-                                    > </span
-                                ><span
-                                    class="text-md text-white item-hover__text hidden xl:flex"
-                                    >Compare</span
-                                > </a
-                            ><a
-                                href="cart.html"
-                                class="flex items-center flex-col gap-8 item-hover-two"
-                                ><span
-                                    class="text-2xl text-white flex relative me-6 mt-6 item-hover__text"
-                                    ><i class="ph ph-shopping-cart-simple"></i>
-                                    <span
-                                        class="w-16 h-16 flex items-center justify-center rounded-[50%] bg-main-two-600 text-white text-xs absolute top-n6 end-n4"
-                                        >2</span
-                                    > </span
-                                ><span
-                                    class="text-md text-white item-hover__text hidden xl:flex"
-                                    >Cart</span
-                                ></a
-                            >
-                        </div>
-                    </div>
-                    <button
-                        type="button"
-                        class="toggle-mobileMenu xl:hidden ms-3n text-gray-800 text-4xl flex"
-                    >
-                        <i class="ph ph-list"></i>
-                    </button>
                 </div>
             </nav>
         </div>
     </header>
 </template>
-
-<script setup>
-import { ref } from "vue";
-</script>

@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+
+    protected $casts = [
+    'gallery' => 'array',  // Convierte automáticamente JSON a array
+];
     protected $fillable = [
         'name',
         'description',
@@ -13,7 +17,8 @@ class Product extends Model
         'stock',
         'image',
         'category_id',
-        // 'gallery'
+        'gallery',
+        'availability'
     ];
     // Relación con categorías (1 producto → 1 categoría)
     public function category()
@@ -21,4 +26,3 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 }
-

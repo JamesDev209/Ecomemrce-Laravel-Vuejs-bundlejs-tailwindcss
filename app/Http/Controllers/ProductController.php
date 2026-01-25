@@ -11,39 +11,43 @@ class ProductController extends Controller
     //
 
 public function store(Request $request)
-    {
-        try {
-            $validated = $request->validate([
-                'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
-                'price' => 'required|numeric',
-                'stock' => 'required|integer',
-                'category_id' => 'nullable|integer|exists:categories,id',
-                'image' => 'nullable|file|image|max:2048', // <-- aquí se valida una sola imagen
-            ]);
+    // app/Http/Controllers/ProductController.php
+{
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'price' => 'required|numeric',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'gallery' => 'nullable|array',
+        'gallery.*' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
+        // ... otros campos
+    ]);
 
-            // Guardar imagen si viene en la request
-            if ($request->hasFile('image')) {
-                $validated['image'] = $request->file('image')->store('products/images', 'public');
-            }
+    $data = $validated;
 
-
-            $product = Product::create($validated);
-
-            return response()->json([
-                'message' => 'Product created successfully',
-                'product' => $product
-            ], 201);
-
-        } catch (\Exception $e) {
-            Log::error('Error al crear producto: ' . $e->getMessage());
-
-            return response()->json([
-                'message' => 'Error al crear el producto',
-                'error' => $e->getMessage()
-            ], 500);
-        }
+    // Guardar imagen principal
+    if ($request->hasFile('image')) {
+        $data['image'] = $request->file('image')->store('productos', 'public');
     }
+
+    // Guardar galería
+    if ($request->hasFile('gallery')) {
+        $galleryPaths = [];
+        foreach ($request->file('gallery') as $image) {
+            $galleryPaths[] = $image->store('productos/gallery', 'public');
+        }
+        $data['gallery'] = json_encode($galleryPaths);
+        
+        // Debug: Ver qué se está guardando
+        Log::info('Gallery saved:', ['paths' => $galleryPaths]);
+    }
+
+    Product::create($data);
+    
+    // Debug: Ver producto creado
+    Log::info('Product created:', ['data' => $data]);
+
+    return response()->json(['message' => 'Producto creado'], 201);
+}
 
     public function index()
     {
