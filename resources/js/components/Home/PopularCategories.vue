@@ -1,8 +1,45 @@
 <script setup>
+// Vacío - falta inicialización del carousel
+import { onMounted, onUnmounted } from 'vue'
 
+let carouselInstance = null
+
+onMounted(() => {
+  // Inicializar Slick carousel
+  if (typeof $ !== 'undefined' && $.fn.slick) {
+    carouselInstance = $('.feature-three-item-wrapper').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      prevArrow: '#feature-item-wrapper-prev',
+      nextArrow: '#feature-item-wrapper-next',
+      autoplay: true,
+      autoplaySpeed: 3000,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: { slidesToShow: 3 }
+        },
+        {
+          breakpoint: 768,
+          settings: { slidesToShow: 2 }
+        },
+        {
+          breakpoint: 480,
+          settings: { slidesToShow: 1 }
+        }
+      ]
+    })
+  }
+})
+
+onUnmounted(() => {
+  if (carouselInstance) {
+    $('.feature-three-item-wrapper').slick('unslick')
+  }
+})
 </script>
 
-
+// ... código de template existente ...
 <template>
         <div
       class="feature feature-three mt-0 py-120 overflow-hidden"

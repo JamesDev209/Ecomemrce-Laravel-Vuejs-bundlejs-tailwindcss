@@ -1087,7 +1087,7 @@
                                 </div>
                                 <div class="flex flex-wrap gap-2">
                                     <div> <input class="form-control form-control-sm" type="text"
-                                            placeholder="Search Here" aria-label=".form-control-sm example"> </div>
+                                            placeholder="Search Here" aria- label=".form-control-sm example"> </div>
                                     <div class="hs-dropdown ti-dropdown"> <a href="javascript:void(0);"
                                             class="ti-btn ti-btn-primary ti-btn-sm !m-0 btn-wave waves-effect waves-light"
                                             data-bs-toggle="dropdown" aria-expanded="false"> Sort By<i

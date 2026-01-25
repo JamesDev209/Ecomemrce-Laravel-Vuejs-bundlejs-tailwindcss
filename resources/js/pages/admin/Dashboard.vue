@@ -6,7 +6,6 @@ import HeaderAdmin from './Layout/HeaderAdmin.vue';
 
 
 <template>
-        <h1>HOLLALALSDDDDDDDDDDDDKSKAKDKAKKKKKKKKKKKKKKKKKKKKKKKKKKLAL</h1>
     <Nav />
     <HeaderAdmin />
 

@@ -73,13 +73,31 @@ onMounted(async () => {
 // CREAR PRODUCTO
 // =====================
 async function addProduct() {
+    // Validaciones del cliente
     if (!cost.value || parseInt(cost.value) <= 0) {
-    Toast.fire({
-        icon: "error",
-        title: "El precio es obligatorio",
-    });
-    return;
+        Toast.fire({
+            icon: "error",
+            title: "El precio es obligatorio",
+        });
+        return;
     }
+
+    if (!category.value) {
+        Toast.fire({
+            icon: "error",
+            title: "Debes seleccionar una categoría",
+        });
+        return;
+    }
+
+    if (!description.value || description.value.trim() === "") {
+        Toast.fire({
+            icon: "error",
+            title: "La descripción es obligatoria",
+        });
+        return;
+    }
+
     errors.value = {};
 
     try {
@@ -88,13 +106,13 @@ async function addProduct() {
         formData.append("description", description.value);
         formData.append("price", cost.value); // 👉 25000 limpio
         formData.append("stock", stock.value);
-        formData.append("category_id", category.value || null);
+        formData.append("category_id", category.value);
         formData.append("availability", availability.value);
 
         if (image.value) {
             formData.append("image", image.value);
         }
-        
+
         // Galería de imágenes
         galleryImages.value.forEach((file, index) => {
             formData.append(`gallery[${index}]`, file);
@@ -118,9 +136,9 @@ async function addProduct() {
         category.value = "";
         image.value = null;
         previewImage.value = null;
-        
+
         // Limpiar galería
-        galleryPreviews.value.forEach(url => URL.revokeObjectURL(url));
+        galleryPreviews.value.forEach((url) => URL.revokeObjectURL(url));
         galleryImages.value = [];
         galleryPreviews.value = [];
     } catch (err) {
@@ -154,24 +172,24 @@ function onImageChange(e) {
 // =====================
 function onGalleryImagesChange(e) {
     const files = Array.from(e.target.files);
-    
+
     // Verificar límite
     const availableSlots = MAX_GALLERY_IMAGES - galleryImages.value.length;
-    
+
     if (files.length > availableSlots) {
         Toast.fire({
-            icon: 'warning',
-            title: `Solo puedes agregar ${availableSlots} imagen(es) más (máximo ${MAX_GALLERY_IMAGES})`
+            icon: "warning",
+            title: `Solo puedes agregar ${availableSlots} imagen(es) más (máximo ${MAX_GALLERY_IMAGES})`,
         });
         return;
     }
-    
-    files.forEach(file => {
+
+    files.forEach((file) => {
         galleryImages.value.push(file);
         galleryPreviews.value.push(URL.createObjectURL(file));
     });
-    
-    e.target.value = '';
+
+    e.target.value = "";
 }
 
 // =====================
@@ -185,7 +203,7 @@ function removeGalleryImage(index) {
 </script>
 
 <template>
-    <Sidebar />
+
     <!-- Start::app-content -->
     <div class="main-content app-content">
         <div class="container-fluid">
@@ -313,6 +331,17 @@ function removeGalleryImage(index) {
                                                             {{ cat.name }}
                                                         </option>
                                                     </select>
+                                                    <p
+                                                        v-if="
+                                                            errors.category_id
+                                                        "
+                                                        class="text-danger text-sm mt-1"
+                                                    >
+                                                        {{
+                                                            errors
+                                                                .category_id[0]
+                                                        }}
+                                                    </p>
                                                 </div>
                                                 <div
                                                     class="xl:col-span-6 col-span-12"
@@ -362,10 +391,25 @@ function removeGalleryImage(index) {
                                                         exceed 500
                                                         letters</label
                                                     >
+                                                    <p
+                                                        v-if="
+                                                            errors.description
+                                                        "
+                                                        class="text-danger text-sm mt-1"
+                                                    >
+                                                        {{
+                                                            errors
+                                                                .description[0]
+                                                        }}
+                                                    </p>
                                                 </div>
                                                 <!-- Imagen Principal -->
-                                                <div class="xl:col-span-12 col-span-12 product-documents-container">
-                                                    <p class="font-medium mb-2 text-[14px]">
+                                                <div
+                                                    class="xl:col-span-12 col-span-12 product-documents-container"
+                                                >
+                                                    <p
+                                                        class="font-medium mb-2 text-[14px]"
+                                                    >
                                                         Imagen Principal:
                                                     </p>
                                                     <input
@@ -375,7 +419,10 @@ function removeGalleryImage(index) {
                                                         @change="onImageChange"
                                                     />
 
-                                                    <div v-if="previewImage" class="mt-3">
+                                                    <div
+                                                        v-if="previewImage"
+                                                        class="mt-3"
+                                                    >
                                                         <img
                                                             :src="previewImage"
                                                             class="w-full h-32 object-cover rounded border border-gray-300"
@@ -384,24 +431,45 @@ function removeGalleryImage(index) {
                                                 </div>
 
                                                 <!-- Galería de Imágenes -->
-                                                <div class="xl:col-span-12 col-span-12 product-documents-container">
-                                                    <p class="font-medium mb-2 text-[14px]">
-                                                        Galería de Imágenes ({{ galleryImages.length }}/{{ MAX_GALLERY_IMAGES }}):
+                                                <div
+                                                    class="xl:col-span-12 col-span-12 product-documents-container"
+                                                >
+                                                    <p
+                                                        class="font-medium mb-2 text-[14px]"
+                                                    >
+                                                        Galería de Imágenes ({{
+                                                            galleryImages.length
+                                                        }}/{{
+                                                            MAX_GALLERY_IMAGES
+                                                        }}):
                                                     </p>
-                                                    
+
                                                     <input
                                                         type="file"
                                                         class="product-Images"
                                                         accept="image/*"
                                                         multiple
-                                                        :disabled="galleryImages.length >= MAX_GALLERY_IMAGES"
-                                                        @change="onGalleryImagesChange"
+                                                        :disabled="
+                                                            galleryImages.length >=
+                                                            MAX_GALLERY_IMAGES
+                                                        "
+                                                        @change="
+                                                            onGalleryImagesChange
+                                                        "
                                                     />
 
                                                     <!-- Grid de previews -->
-                                                    <div v-if="galleryPreviews.length > 0" class="mt-3 grid grid-cols-3 gap-3">
-                                                        <div 
-                                                            v-for="(preview, index) in galleryPreviews" 
+                                                    <div
+                                                        v-if="
+                                                            galleryPreviews.length >
+                                                            0
+                                                        "
+                                                        class="mt-3 grid grid-cols-3 gap-3"
+                                                    >
+                                                        <div
+                                                            v-for="(
+                                                                preview, index
+                                                            ) in galleryPreviews"
                                                             :key="index"
                                                             class="relative group"
                                                         >
@@ -411,7 +479,11 @@ function removeGalleryImage(index) {
                                                             />
                                                             <button
                                                                 type="button"
-                                                                @click="removeGalleryImage(index)"
+                                                                @click="
+                                                                    removeGalleryImage(
+                                                                        index,
+                                                                    )
+                                                                "
                                                                 class="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                                                             >
                                                                 ×
@@ -419,8 +491,16 @@ function removeGalleryImage(index) {
                                                         </div>
                                                     </div>
 
-                                                    <label class="form-label text-textmuted dark:text-textmuted/50 mt-3 font-normal text-xs">
-                                                        * Puedes agregar hasta {{ MAX_GALLERY_IMAGES }} imágenes adicionales para la galería del producto.
+                                                    <label
+                                                        class="form-label text-textmuted dark:text-textmuted/50 mt-3 font-normal text-xs"
+                                                    >
+                                                        * Puedes agregar hasta
+                                                        {{
+                                                            MAX_GALLERY_IMAGES
+                                                        }}
+                                                        imágenes adicionales
+                                                        para la galería del
+                                                        producto.
                                                     </label>
                                                 </div>
                                                 <div

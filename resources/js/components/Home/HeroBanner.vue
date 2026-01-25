@@ -1,17 +1,48 @@
-<script setup></script>
+<script setup>
+import { onMounted, nextTick } from "vue";
+
+onMounted(async () => {
+    await nextTick();
+
+    // 🔁 Reinicializar WOW
+    if (window.WOW) {
+        new WOW().init();
+    }
+
+    // 🔁 Reinicializar Slick
+    if (window.$ && $(".banner-three-slider").length) {
+        $(".banner-three-slider").slick({
+            arrows: true,
+            prevArrow: "#banner-three-prev",
+            nextArrow: "#banner-three-next",
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 4000,
+        });
+    }
+
+    // 🔁 Reinicializar Tilt
+    if (window.VanillaTilt) {
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
+    }
+});
+</script>
 
 <template>
     <section class="banner-three bg-img z-[1] relative">
         <div class="bg-img-custom">
-            <img src="" alt="Image" />
+            <img
+                src="https://tse2.mm.bing.net/th/id/OIP.G37tgeQqSNt7v2oPfj9ltQHaE7?rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Image"
+            />
         </div>
         <img
-            src=""
+            src="https://tse2.mm.bing.net/th/id/OIP.G37tgeQqSNt7v2oPfj9ltQHaE7?rs=1&pid=ImgDetMain&o=7&rm=3"
             alt="Imagne"
             class="animation star-shape animation-rotate"
         />
         <img
-            src=""
+            src="https://tse2.mm.bing.net/th/id/OIP.G37tgeQqSNt7v2oPfj9ltQHaE7?rs=1&pid=ImgDetMain&o=7&rm=3"
             alt="Image"
             class="animation star-shape style-two animation-rotate"
         />
@@ -49,9 +80,6 @@
                             class="xl:w-6/12 flex-grow-0 flex-shrink-0 basis-auto"
                         >
                             <div class="span3">
-                                <span class="text-white mb-8 h6 wow bounceIn"
-                                    >UP TO 50% OFF</span
-                                >
                                 <h1
                                     class="text-white display-one wow bounceInLeft"
                                 >
@@ -105,9 +133,6 @@
                             class="xl:w-6/12 flex-grow-0 flex-shrink-0 basis-auto"
                         >
                             <div class="">
-                                <span class="text-white mb-8 h6 wow bounceIn"
-                                    >UP TO 50% OFF</span
-                                >
                                 <h1
                                     class="text-white display-one wow bounceInLeft"
                                 >

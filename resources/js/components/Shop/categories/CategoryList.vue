@@ -20,7 +20,6 @@ const selectCategory = (categoryId) => {
 }
 </script>
 
-
 <template>
     <div class="shop-sidebar">
         <button type="button" class="shop-sidebar__close xl:hidden flex w-32 h-32 flex items-center justify-center border border-gray-100 rounded-[50%] hover-bg-main-600 absolute right-0 mr-[10px] mt-8 hover-text-white hover-border-main-600">

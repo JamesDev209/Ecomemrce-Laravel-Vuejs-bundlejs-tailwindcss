@@ -9,6 +9,9 @@ import ProductsList from "../pages/admin/products/ProductsList.vue";
 //Categorías routes
 import CategoriesIndex from "../pages/admin/categorias/CategoriesIndex.vue";
 
+//Usuarios routes
+import UsersIndex from "../pages/admin/users/Users.vue";
+
 const routes = [
     {
         path: "/admin/login",
@@ -38,6 +41,11 @@ const routes = [
                 path: "categories",
                 name: "admin-categories-index",
                 component: CategoriesIndex,
+            },
+            {
+                path: "users",
+                name: "admin-users-index",
+                component: UsersIndex,
             },
         ],
     },

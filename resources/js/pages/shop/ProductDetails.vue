@@ -282,7 +282,7 @@ onUnmounted(() => {
                                         <img 
                                             :src="image" 
                                             :alt="`${product.product.name} - Imagen ${index + 1}`"
-                                            class="w-full h-auto object-contain max-h-[400px]"
+                                            class="w-100 h-100 object-contain max-h-[400px]"
                                         />
                                     </swiper-slide>
                                 </swiper>
@@ -298,19 +298,47 @@ onUnmounted(() => {
                                     :modules="modules"
                                     class="product-thumbnails"
                                 >
-                                    <swiper-slide 
-                                        v-for="(image, index) in productImages" 
-                                        :key="index"
-                                        class="cursor-pointer border border-gray-100 rounded-8 overflow-hidden hover:border-main-600 transition-colors"
-                                    >
-                                        <div class="flex items-center justify-center bg-gray-50 p-8 h-20">
-                                            <img 
-                                                :src="image" 
-                                                :alt="`Miniatura ${index + 1}`"
-                                                class="w-full h-full object-contain"
-                                            />
-                                        </div>
-                                    </swiper-slide>
+                                    <swiper-slide
+    v-for="(image, index) in productImages"
+    :key="index"
+    class="
+        cursor-pointer 
+        border 
+        border-gray-200 
+        rounded-12 
+        overflow-hidden 
+        transition-all 
+        duration-300
+        hover:border-main-600 
+        hover:shadow-md
+    "
+>
+    <div
+        class="
+            flex 
+            items-center 
+            justify-center 
+            bg-gray-50 
+            p-12 
+            h-100 
+            w-100
+        "
+    >
+        <img
+            :src="image"
+            :alt="`Miniatura ${index + 1}`"
+            class="
+                w-full 
+                h-full 
+                object-contain 
+                transition-transform 
+                duration-300 
+                hover:scale-105
+            "
+        />
+    </div>
+</swiper-slide>
+
                                 </swiper>
                             </div>
                         </div>
@@ -690,8 +718,8 @@ onUnmounted(() => {
                                     aria-controls="pills-description"
                                     aria-selected="true"
                                 >
-                                    Description
-                                </button>
+                                    Descripcion
+                                </button>s
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button
@@ -709,12 +737,7 @@ onUnmounted(() => {
                                 </button>
                             </li>
                         </ul>
-                        <a
-                            href="index.html"
-                            class="btn bg-color-one rounded-16 flex items-center gap-8 text-main-600 hover-bg-main-600 hover-text-white"
-                            ><img src="" alt="Image" /> 100% Satisfaction
-                            Guaranteed</a
-                        >
+                        
                     </div>
                     <div class="product-dContent__box">
                         <div class="tab-content" id="pills-tabContent">
@@ -900,77 +923,7 @@ onUnmounted(() => {
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="mb-40">
-                                    <h6 class="mb-24">Nutrition Facts</h6>
-                                    <ul class="mt-32">
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span
-                                                class="text-heading font-[500]"
-                                                >Total Fat 10g 13%</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span
-                                                class="text-heading font-[500]"
-                                                >Saturated Fat 1.5g 7%</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span
-                                                class="text-heading font-[500]"
-                                                >Cholesterol 0mg 0%</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span
-                                                class="text-heading font-[500]"
-                                                >Sodium 170mg 7%</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span
-                                                class="text-heading font-[500]"
-                                                >Potassium 350mg 6%</span
-                                            >
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="mb-0">
+                        <div class="mb-0">
                                     <h6 class="mb-24">More Details</h6>
                                     <ul class="mt-32">
                                         <li

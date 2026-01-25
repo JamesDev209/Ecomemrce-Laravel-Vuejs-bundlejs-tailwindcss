@@ -8,6 +8,5 @@ import Header from "../components/Layout/Header.vue";
     <main>
         <router-view />
     </main>
-
     <Footer />
 </template>

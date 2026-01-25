@@ -4,14 +4,28 @@ import axios from "axios";
 
 import ProductCard from "@/components/Shop/products/ProductCard.vue";
 import CategoryList from "@/components/Shop/categories/CategoryList.vue";
+import Pagination from "@/components/Shop/products/pagination/Pagination.vue";
 
 const products = ref([]);
 const selectedCategory = ref(null);
 const loading = ref(true);
+const pagination = ref({});
 
-const loadProducts = async () => {
-    const res = await axios.get("/api/products");
-    products.value = res.data.products;
+const loadProducts = async (page = 1) => {
+    loading.value = true;
+    try {
+        const res = await axios.get("/api/products", {
+            params: {
+                page: selectedCategory.value ? 1 : page, // Si hay categoría, siempre página 1
+                category: selectedCategory.value,
+            },
+        });
+
+        products.value = res.data.data;
+        pagination.value = res.data;
+    } finally {
+        loading.value = false;
+    }
 };
 
 onMounted(async () => {
@@ -19,18 +33,14 @@ onMounted(async () => {
         await loadProducts();
     } catch (error) {
         console.error("Error cargando productos", error);
-    } finally {
-        loading.value = false;
     }
 });
 
-// 🔥 FILTRO POR CATEGORÍA
-const filteredProducts = computed(() => {
-    if (!selectedCategory.value) return products.value;
-    return products.value.filter(
-        (product) => product.category_id === selectedCategory.value
-    );
-});
+// Función para cuando se selecciona una categoría
+const handleCategoryChange = (categoryId) => {
+    selectedCategory.value = categoryId;
+    loadProducts(1); // Recargar productos desde la página 1
+};
 </script>
 
 <template>
@@ -57,10 +67,23 @@ const filteredProducts = computed(() => {
         <div class="container container-lg">
             <div class="row">
                 <div class="xl:w-3/12 flex-grow-0 flex-shrink-0 basis-auto">
-                    <CategoryList @select-category="selectedCategory = $event" />
+                    <CategoryList
+                        @select-category="handleCategoryChange"
+                    />
                 </div>
-                <ProductCard :products="filteredProducts" :loading="loading" />
+                <ProductCard :products="products" :loading="loading" />
             </div>
+                
+
+                    <!-- Solo mostrar paginación si no hay categoría seleccionada -->
+                    <ul v-if="!selectedCategory && pagination.last_page > 1" class="pagination flex items-center justify-center flex-wrap gap-16">
+                        <Pagination
+                            :current-page="pagination.current_page"
+                            :last-page="pagination.last_page"
+                            @change-page="loadProducts"
+                        />
+                    </ul>
+
         </div>
     </section>
 </template>

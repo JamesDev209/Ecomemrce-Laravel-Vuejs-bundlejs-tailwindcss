@@ -15,9 +15,8 @@ watch(
     (path) => {
         isProductsMenuOpen.value = path.startsWith("/admin/products");
     },
-    { immediate: true }
+    { immediate: true },
 );
-
 
 const toggleProductsMenu = () => {
     isProductsMenuOpen.value = !isProductsMenuOpen.value;
@@ -150,6 +149,42 @@ const isDashboardActive = computed(() => {
                                 </router-link>
                             </li>
                         </ul>
+                    </li>
+                    <!---Usuarios-->
+
+                    <li class="slide">
+                        <router-link
+                            :to="{ name: 'admin-users-index' }"
+                            class="side-menu__item"
+                            active-class="active"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="w-6 h-6 side-menu__icon"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493"
+                                />
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15 19.128v-.003a6.375 6.375 0 0 0-12.75 0v.003"
+                                />
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15 11.25a3 3 0 1 0-6 0 3 3 0 0 0 6 0Z"
+                                />
+                            </svg>
+
+                            <span class="side-menu__label">Usuarios</span>
+                        </router-link>
                     </li>
 
                     <li class="slide">
