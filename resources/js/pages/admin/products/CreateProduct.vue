@@ -203,7 +203,6 @@ function removeGalleryImage(index) {
 </script>
 
 <template>
-
     <!-- Start::app-content -->
     <div class="main-content app-content">
         <div class="container-fluid">

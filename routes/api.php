@@ -14,6 +14,11 @@ Route::prefix('products')->group(function () {
 //Rutas para categorías
 Route::get('/categories', [CategoryController::class, 'index']);
 
+//Rutas para usuarios
+Route::get('/users', [App\Http\Controllers\UsersController::class, 'index']);
+Route::post('/users', [App\Http\Controllers\UsersController::class, 'store']);
 
 
-
+//Rutas para autenticación de clients
+Route::post('/clients/login', [App\Http\Controllers\ClientController::class, 'login']);
+Route::post('/clients/register', [App\Http\Controllers\ClientController::class, 'register']);

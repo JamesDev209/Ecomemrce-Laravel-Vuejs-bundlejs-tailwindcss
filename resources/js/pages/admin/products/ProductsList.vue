@@ -33,7 +33,6 @@ onMounted(() => {
 </script>
 
 <template>
-    <Sidebar />
     <!-- ========== Switcher  ========== -->
     <div
         id="hs-overlay-switcher"

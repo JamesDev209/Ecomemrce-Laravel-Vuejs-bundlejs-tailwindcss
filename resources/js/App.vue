@@ -22,7 +22,7 @@ watch(() => route.fullPath, async () => {
 <template>
   <router-view />
 </template>
-
+<!-- 
 
 
 
@@ -35,5 +35,5 @@ watch(() => route.fullPath, async () => {
 
 0 Abandonados 
 0 Abandonados 
-0 Abandonados 
+0 Abandonados  -->
 

@@ -5,6 +5,10 @@ import HomeView from "@/pages/home/HomeView.vue";
 import ShopProducts from "@/pages/shop/ShopProducts.vue";
 import ProductDetails from "@/pages/shop/ProductDetails.vue";
 
+
+import ClientAuth from "@/pages/clients/auth/Auth.vue";
+
+
 const routes = [
     {
         path: "/",
@@ -24,6 +28,11 @@ const routes = [
                 path: "shop/:id",
                 name: "product-details",
                 component: ProductDetails,
+            },
+            {
+                path: "client-auth",
+                name: "client-auth",
+                component: ClientAuth,
             },
 
         ],
