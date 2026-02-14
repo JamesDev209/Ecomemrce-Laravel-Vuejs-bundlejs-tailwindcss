@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Support\Facades\Log;
+use illuminate\Support\Str;
 
 use Illuminate\Http\Request;
 
@@ -28,6 +28,11 @@ class ProductController extends Controller
 
         $data = $validated;
 
+        $data['slug'] = Str::slug($request->name);
+
+        // Generar SKU automático si no lo envías
+        $data['sku'] = 'SKU-' . strtoupper(Str::random(8));
+
         // Guardar imagen principal
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('productos', 'public');
@@ -40,13 +45,9 @@ class ProductController extends Controller
                 $galleryPaths[] = $image->store('productos/gallery', 'public');
             }
             $data['gallery'] = $galleryPaths;
-
         }
 
         Product::create($data);
-
-        // Debug: Ver producto creado
-        Log::info('Product created:', ['data' => $data]);
 
         return response()->json(['message' => 'Producto creado'], 201);
     }
