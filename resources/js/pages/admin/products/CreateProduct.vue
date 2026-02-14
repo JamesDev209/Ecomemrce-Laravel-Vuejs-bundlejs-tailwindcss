@@ -211,40 +211,10 @@ function removeGalleryImage(index) {
                 class="flex items-center justify-between page-header-breadcrumb flex-wrap gap-2"
             >
                 <div>
-                    <nav>
-                        <ol class="breadcrumb mb-1">
-                            <li class="breadcrumb-item">
-                                <a href="javascript:void(0);">Apps</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="javascript:void(0);">Ecommerce</a>
-                            </li>
-                            <li
-                                class="breadcrumb-item active"
-                                aria-current="page"
-                            >
-                                Add Product
-                            </li>
-                        </ol>
-                    </nav>
+
                     <h1 class="page-title font-medium text-lg mb-0">
-                        Add Product
+                        Crear Producto
                     </h1>
-                </div>
-                <div class="btn-list">
-                    <button
-                        class="ti-btn bg-white dark:bg-bodybg border border-defaultborder dark:border-defaultborder/10 btn-wave !my-0"
-                    >
-                        <i
-                            class="ri-filter-3-line align-middle me-1 leading-none"
-                        ></i>
-                        Filter
-                    </button>
-                    <button
-                        class="ti-btn ti-btn-primary !border-0 btn-wave me-0"
-                    >
-                        <i class="ri-share-forward-line me-1"></i> Share
-                    </button>
                 </div>
             </div>
             <!-- Page Header Close -->
@@ -269,7 +239,7 @@ function removeGalleryImage(index) {
                                                     <label
                                                         for="product-name-add"
                                                         class="form-label"
-                                                        >Product Name</label
+                                                        >Nombre del producto</label
                                                     >
                                                     <input
                                                         type="text"
@@ -281,9 +251,9 @@ function removeGalleryImage(index) {
                                                     <label
                                                         for="product-name-add"
                                                         class="form-label mt-1 text-xs font-normal text-textmuted dark:text-textmuted/50 mb-0"
-                                                        >*Product Name should
-                                                        not exceed 30
-                                                        characters</label
+                                                        >*El nombre del producto
+                                                        no debe exceder 30
+                                                        caracteres</label
                                                     >
                                                     <p
                                                         v-if="errors.name"
@@ -309,7 +279,7 @@ function removeGalleryImage(index) {
                                                     <label
                                                         for="product-category-add"
                                                         class="form-label"
-                                                        >Category</label
+                                                        >Categoría</label
                                                     >
 
                                                     <select
@@ -348,7 +318,7 @@ function removeGalleryImage(index) {
                                                     <label
                                                         for="product-cost-add"
                                                         class="form-label"
-                                                        >Enter Cost</label
+                                                        >Costo del producto</label
                                                     >
 
                                                     <input
@@ -363,8 +333,8 @@ function removeGalleryImage(index) {
                                                     <label
                                                         class="form-label mt-1 text-xs font-normal text-textmuted dark:text-textmuted/50 mb-0"
                                                     >
-                                                        *Mention final price of
-                                                        the product
+                                                        *Mantenga el precio final
+                                                        del producto
                                                     </label>
                                                 </div>
 
@@ -386,9 +356,9 @@ function removeGalleryImage(index) {
                                                     <label
                                                         for="product-description-add"
                                                         class="form-label mt-1 text-xs font-normal text-textmuted dark:text-textmuted/50 mb-0"
-                                                        >*Description should not
-                                                        exceed 500
-                                                        letters</label
+                                                        >*Descripción del
+                                                        producto no debe exceder 500
+                                                        letras</label
                                                     >
                                                     <p
                                                         v-if="
@@ -508,7 +478,7 @@ function removeGalleryImage(index) {
                                                     <label
                                                         for="product-status-add1"
                                                         class="form-label"
-                                                        >Availability</label
+                                                        >Disponibilidad</label
                                                     >
                                                     <select
                                                         class="form-control"
@@ -518,17 +488,17 @@ function removeGalleryImage(index) {
                                                         v-model="availability"
                                                     >
                                                         <option value="">
-                                                            Select
+                                                            Seleccione
                                                         </option>
                                                         <option
                                                             value="In Stock"
                                                         >
-                                                            In Stock
+                                                            Disponible
                                                         </option>
                                                         <option
                                                             value="Out Of Stock"
                                                         >
-                                                            Out Of Stock
+                                                            No Disponible
                                                         </option>
                                                     </select>
                                                 </div>

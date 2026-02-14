@@ -850,38 +850,6 @@ onUnmounted(() => {
                                                 ></i> </span
                                             ><span
                                                 class="text-heading font-[500]"
-                                                >Brand:
-                                                <span class="text-gray-500"
-                                                    >Lay's</span
-                                                ></span
-                                            >
-                                        </li>
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span
-                                                class="text-heading font-[500]"
-                                                >FSA Eligible:
-                                                <span class="text-gray-500"
-                                                    >No</span
-                                                ></span
-                                            >
-                                        </li>
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span
-                                                class="text-heading font-[500]"
                                                 >Size/Count:
                                                 <span class="text-gray-500"
                                                     >8.0oz</span
@@ -904,80 +872,7 @@ onUnmounted(() => {
                                                 ></span
                                             >
                                         </li>
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span
-                                                class="text-heading font-[500]"
-                                                >Ingredients:
-                                                <span class="text-gray-500"
-                                                    >Potatoes, Vegetable Oil,
-                                                    and Salt.</span
-                                                ></span
-                                            >
-                                        </li>
-                                    </ul>
-                                </div>
-                        <div class="mb-0">
-                                    <h6 class="mb-24">More Details</h6>
-                                    <ul class="mt-32">
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span class="text-gray-500"
-                                                >Lunarlon midsole delivers
-                                                ultra-plush responsiveness</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span class="text-gray-500"
-                                                >Encapsulated Air-Sole heel unit
-                                                for lightweight cushioning</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span class="text-gray-500"
-                                                >Colour Shown: Ale
-                                                Brown/Black/Goldtone/Ale
-                                                Brown</span
-                                            >
-                                        </li>
-                                        <li
-                                            class="text-gray-400 mb-14 flex items-center gap-14"
-                                        >
-                                            <span
-                                                class="w-20 h-20 bg-main-50 text-main-600 text-xs flex items-center justify-center rounded-[50%]"
-                                                ><i
-                                                    class="ph ph-check"
-                                                ></i> </span
-                                            ><span class="text-gray-500"
-                                                >Style: 805899-202</span
-                                            >
-                                        </li>
+                                   
                                     </ul>
                                 </div>
                             </div>

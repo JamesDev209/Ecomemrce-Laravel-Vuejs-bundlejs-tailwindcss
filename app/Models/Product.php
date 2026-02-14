@@ -8,18 +8,25 @@ class Product extends Model
 {
 
     protected $casts = [
-    'gallery' => 'array',  // Convierte automáticamente JSON a array
-];
+        'gallery' => 'array',  // Convierte automáticamente JSON a array
+    ];
     protected $fillable = [
+        'category_id',
         'name',
+        'slug',
+        'brand',
+        'sku',
+        'short_description',
         'description',
         'price',
         'stock',
+        'availability',
         'image',
-        'category_id',
         'gallery',
-        'availability'
+        'country_of_origin',
+        'is_active'
     ];
+
     // Relación con categorías (1 producto → 1 categoría)
     public function category()
     {
